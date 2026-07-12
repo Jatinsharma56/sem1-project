@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BMW Hub – The Ultimate Driving Machine</title>
   <link rel="stylesheet" href="css/style.css">
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
-<body>
+<body class="theme-blue">
 
   <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="logo">🚗 BMW HUB</div>
+  <nav class="navbar" id="navbar">
+    <div class="logo">🚗 BMW <span>HUB</span></div>
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#models">Models</a></li>
@@ -23,10 +25,22 @@
   <!-- HERO -->
   <section id="home" class="hero">
     <div class="hero-content">
+      <span class="badge">Performance Redefined</span>
       <h1>THE ULTIMATE</h1>
-      <h1 class="blue">DRIVING MACHINE</h1>
+      <h1 class="accent-text">DRIVING MACHINE</h1>
       <p>Experience power, precision, and pure luxury. Explore BMW's legendary lineup built for those who dare to drive.</p>
-      <a href="#models" class="btn">EXPLORE MODELS</a>
+      
+      <!-- Interactive Color Selector -->
+      <div class="color-selector-container">
+        <span>Customize Theme Color:</span>
+        <div class="colors">
+          <div class="color-dot blue active" data-color="blue" title="M Power Blue"></div>
+          <div class="color-dot red" data-color="red" title="Sport Red"></div>
+          <div class="color-dot gold" data-color="gold" title="M Sunset Gold"></div>
+        </div>
+      </div>
+
+      <a href="#models" class="btn-primary">EXPLORE MODELS <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </section>
 
@@ -34,13 +48,16 @@
   <section id="models" class="models">
     <div class="section-header">
       <h2>TOP <span>MODELS</span></h2>
-      <p>BMW's most iconic and best-selling cars of all time.</p>
+      <p>BMW's most iconic and best-selling cars of all time. Click any car to view full specifications.</p>
     </div>
 
     <div class="cards">
 
-      <div class="card">
-        <img src="images/world.png" alt="BMW M3">
+      <div class="card" data-model="BMW M3" data-hp="503 HP" data-time="3.5s" data-speed="290 km/h" data-price="₹ 1.2 Crore" data-img="images/world.png" data-desc="The BMW M3 Sedan combines athletic proportions and a classic three-box design with the sportiness typical of M series. Powered by a twin-turbo inline 6-cylinder engine.">
+        <div class="card-img-container">
+          <img src="images/world.png" alt="BMW M3">
+          <div class="img-overlay"><span class="view-btn">View Specs</span></div>
+        </div>
         <div class="card-body">
           <h3>BMW M3</h3>
           <p>Sport Sedan · 503 HP · 0–100 in 3.5s</p>
@@ -48,8 +65,11 @@
         </div>
       </div>
 
-      <div class="card">
-        <img src="images/t.png" alt="BMW 7 Series">
+      <div class="card" data-model="BMW 7 Series" data-hp="536 HP" data-time="4.2s" data-speed="250 km/h" data-price="₹ 1.8 Crore" data-img="images/t.png" data-desc="The BMW 7 Series represents the pinnacle of luxury, combining executive-level passenger comfort with state-of-the-art cinematic theatre screen entertainment and majestic driving presence.">
+        <div class="card-img-container">
+          <img src="images/t.png" alt="BMW 7 Series">
+          <div class="img-overlay"><span class="view-btn">View Specs</span></div>
+        </div>
         <div class="card-body">
           <h3>BMW 7 Series</h3>
           <p>Luxury Sedan · 536 HP · Executive Class</p>
@@ -57,8 +77,11 @@
         </div>
       </div>
 
-      <div class="card">
-        <img src="images/AB.png" alt="BMW X5">
+      <div class="card" data-model="BMW X5" data-hp="456 HP" data-time="4.8s" data-speed="243 km/h" data-price="₹ 98 Lakhs" data-img="images/AB.png" data-desc="The BMW X5 is a powerful luxury SUV that delivers supreme off-road performance, immense towing capabilities, and premium interior craftsmanship for the ultimate family adventure.">
+        <div class="card-img-container">
+          <img src="images/AB.png" alt="BMW X5">
+          <div class="img-overlay"><span class="view-btn">View Specs</span></div>
+        </div>
         <div class="card-body">
           <h3>BMW X5</h3>
           <p>Luxury SUV · 456 HP · All-Terrain King</p>
@@ -66,8 +89,11 @@
         </div>
       </div>
 
-      <div class="card">
-        <img src="images/1.png" alt="BMW M5">
+      <div class="card" data-model="BMW M5" data-hp="625 HP" data-time="3.3s" data-speed="305 km/h" data-price="₹ 1.7 Crore" data-img="images/1.png" data-desc="The BMW M5 Competition is a track-ready executive super sedan. Armed with an aggressive 4.4L TwinPower Turbo V8, it offers jaw-dropping acceleration with xDrive traction control.">
+        <div class="card-img-container">
+          <img src="images/1.png" alt="BMW M5">
+          <div class="img-overlay"><span class="view-btn">View Specs</span></div>
+        </div>
         <div class="card-body">
           <h3>BMW M5</h3>
           <p>Super Sedan · 625 HP · 0–100 in 3.3s</p>
@@ -75,8 +101,11 @@
         </div>
       </div>
 
-      <div class="card">
-        <img src="images/4.png" alt="BMW Z4">
+      <div class="card" data-model="BMW Z4" data-hp="382 HP" data-time="4.5s" data-speed="250 km/h" data-price="₹ 89 Lakhs" data-img="images/4.png" data-desc="An iconic open-top roadster. The BMW Z4 blends classic sports car proportions with cutting-edge tech, a lightning-fast soft top, and an agile chassis built for twisty mountain highways.">
+        <div class="card-img-container">
+          <img src="images/4.png" alt="BMW Z4">
+          <div class="img-overlay"><span class="view-btn">View Specs</span></div>
+        </div>
         <div class="card-body">
           <h3>BMW Z4</h3>
           <p>Roadster · 382 HP · Open-Top Thrill</p>
@@ -84,8 +113,11 @@
         </div>
       </div>
 
-      <div class="card">
-        <img src="images/5.png" alt="BMW i8">
+      <div class="card" data-model="BMW i8" data-hp="374 HP" data-time="4.4s" data-speed="250 km/h" data-price="₹ 2.2 Crore" data-img="images/5.png" data-desc="The BMW i8 is a revolutionary hybrid supercar featuring carbon-fiber dihedral scissor doors, futuristic aerodynamics, and an innovative gas-electric drive system.">
+        <div class="card-img-container">
+          <img src="images/5.png" alt="BMW i8">
+          <div class="img-overlay"><span class="view-btn">View Specs</span></div>
+        </div>
         <div class="card-body">
           <h3>BMW i8</h3>
           <p>Hybrid Supercar · 374 HP · Future Icon</p>
@@ -111,7 +143,7 @@
       <div class="info-row"><span>🏆</span><p>Awards: World Car of the Year 2023</p></div>
       <div class="info-row"><span>📊</span><p>Sales: 2.5 Million Cars Sold in 2023</p></div>
 
-      <a href="#contact" class="btn">BOOK TEST DRIVE</a>
+      <a href="#contact" class="btn-primary">BOOK TEST DRIVE</a>
     </div>
   </section>
 
@@ -124,19 +156,27 @@
 
     <div class="feat-grid">
       <div class="feat-card">
-        <img src="images/111.png" alt="M Performance">
+        <div class="img-wrapper">
+          <img src="images/111.png" alt="M Performance">
+        </div>
         <h3>⚡ M PERFORMANCE</h3>
       </div>
       <div class="feat-card">
-        <img src="images/222.png" alt="xDrive">
+        <div class="img-wrapper">
+          <img src="images/222.png" alt="xDrive">
+        </div>
         <h3>🛡️ XDRIVE AWD</h3>
       </div>
       <div class="feat-card">
-        <img src="images/333.png" alt="eDrive">
+        <div class="img-wrapper">
+          <img src="images/333.png" alt="eDrive">
+        </div>
         <h3>🔋 BMW eDRIVE</h3>
       </div>
       <div class="feat-card">
-        <img src="images/444.png" alt="iDrive">
+        <div class="img-wrapper">
+          <img src="images/444.png" alt="iDrive">
+        </div>
         <h3>🖥️ iDRIVE SYSTEM</h3>
       </div>
     </div>
@@ -172,10 +212,19 @@
     </div>
 
     <div class="contact-right">
-      <form>
-        <input type="text" placeholder="Your Name">
-        <input type="email" placeholder="Your Email">
-        <textarea placeholder="Which BMW model interests you?"></textarea>
+      <form id="booking-form">
+        <input type="text" placeholder="Your Name" required id="form-name">
+        <input type="email" placeholder="Your Email" required id="form-email">
+        <select id="form-model" required>
+          <option value="" disabled selected>Select BMW Model</option>
+          <option value="BMW M3">BMW M3</option>
+          <option value="BMW 7 Series">BMW 7 Series</option>
+          <option value="BMW X5">BMW X5</option>
+          <option value="BMW M5">BMW M5</option>
+          <option value="BMW Z4">BMW Z4</option>
+          <option value="BMW i8">BMW i8</option>
+        </select>
+        <textarea placeholder="Special requests or preferred time..." id="form-msg"></textarea>
         <button type="submit">SEND REQUEST</button>
       </form>
     </div>
@@ -188,5 +237,48 @@
     <p class="copy">© 2026 BMW Hub — All Rights Reserved</p>
   </footer>
 
+  <!-- DYNAMIC SPECIFICATIONS MODAL -->
+  <div class="modal" id="specs-modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="close-modal-btn"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-grid">
+        <div class="modal-left">
+          <img id="modal-img" src="" alt="Car Image">
+        </div>
+        <div class="modal-right">
+          <h2 id="modal-title">BMW Model</h2>
+          <p id="modal-desc" class="modal-description">Car description goes here...</p>
+          
+          <div class="specs-list">
+            <div class="spec-item">
+              <span class="label"><i class="fa-solid fa-gauge"></i> Horsepower</span>
+              <span class="value" id="modal-hp">-</span>
+            </div>
+            <div class="spec-item">
+              <span class="label"><i class="fa-solid fa-bolt"></i> 0-100 km/h</span>
+              <span class="value" id="modal-time">-</span>
+            </div>
+            <div class="spec-item">
+              <span class="label"><i class="fa-solid fa-tachograph-digital"></i> Top Speed</span>
+              <span class="value" id="modal-speed">-</span>
+            </div>
+            <div class="spec-item">
+              <span class="label"><i class="fa-solid fa-indian-rupee-sign"></i> Est. Price</span>
+              <span class="value highlight" id="modal-price">-</span>
+            </div>
+          </div>
+          
+          <button class="btn-primary modal-action-btn" id="modal-book-btn">Book Test Drive Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- JAVASCRIPT -->
+  <script src="js/script.js"></script>
 </body>
 </html>
