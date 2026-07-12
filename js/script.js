@@ -1,6 +1,23 @@
 // Wait for the DOM to load
 document.addEventListener("DOMContentLoaded", () => {
   
+  // 0. HIDE PRELOADER ON LOAD
+  const preloader = document.getElementById("preloader");
+  window.addEventListener("load", () => {
+    fadeOutPreloader();
+  });
+
+  // Fallback if load event already fired or delayed
+  setTimeout(() => {
+    fadeOutPreloader();
+  }, 2200);
+
+  function fadeOutPreloader() {
+    if (preloader && !preloader.classList.contains("fade-out")) {
+      preloader.classList.add("fade-out");
+    }
+  }
+  
   // 1. STICKY NAVBAR GLASS EFFECT ON SCROLL
   const navbar = document.getElementById("navbar");
   window.addEventListener("scroll", () => {
