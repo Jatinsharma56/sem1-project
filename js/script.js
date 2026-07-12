@@ -1,21 +1,33 @@
 // Wait for the DOM to load
 document.addEventListener("DOMContentLoaded", () => {
   
-  // 0. HIDE PRELOADER ON LOAD
+  // 0. INTERACTIVE PRELOADER (ENGINE START BUTTON & AUDIO)
   const preloader = document.getElementById("preloader");
-  window.addEventListener("load", () => {
-    fadeOutPreloader();
-  });
+  const startBtn = document.getElementById("start-btn");
+  const startContainer = document.getElementById("start-engine-container");
+  const loaderContent = document.getElementById("loader-active-content");
 
-  // Fallback if load event already fired or delayed
-  setTimeout(() => {
-    fadeOutPreloader();
-  }, 2200);
+  if (startBtn) {
+    startBtn.addEventListener("click", () => {
+      // 1. Play Exhaust Sound
+      const audioUrl = "https://www.orangefreesounds.com/wp-content/uploads/2017/08/Car-exhaust-sound.mp3";
+      const engineSound = new Audio(audioUrl);
+      engineSound.volume = 0.8; // Set volume to 80%
+      engineSound.play().catch(error => {
+        console.log("Audio play blocked by browser:", error);
+      });
 
-  function fadeOutPreloader() {
-    if (preloader && !preloader.classList.contains("fade-out")) {
-      preloader.classList.add("fade-out");
-    }
+      // 2. Hide button container, show loading animation
+      startContainer.classList.add("hidden");
+      loaderContent.classList.remove("hidden");
+
+      // 3. Keep loading for 4.5 seconds (4500ms), then fade out
+      setTimeout(() => {
+        if (preloader) {
+          preloader.classList.add("fade-out");
+        }
+      }, 4500);
+    });
   }
   
   // 1. STICKY NAVBAR GLASS EFFECT ON SCROLL
