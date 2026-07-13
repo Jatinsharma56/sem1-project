@@ -63,6 +63,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // 1.5 BUGATTI-STYLE SCROLL REVEAL (Intersection Observer)
+  const revealEls = document.querySelectorAll(".reveal-up");
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target); // Animate once
+      }
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -60px 0px" });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // Trigger hero animations on load
+  setTimeout(() => {
+    document.querySelectorAll(".hero .reveal-up").forEach(el => el.classList.add("visible"));
+  }, 200);
+
   // 2. DYNAMIC THEMING / COLOR CUSTOMIZER
   const colorDots = document.querySelectorAll(".color-dot");
   const body = document.body;
