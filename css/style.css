@@ -289,21 +289,23 @@ body {
 .card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  overflow: hidden;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform-style: preserve-3d;
 }
 
 .card:hover {
-  transform: translateY(-10px);
   border-color: var(--accent);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 15px var(--accent-light);
+  /* translateY is removed, handled by JS tilt */
 }
 
 .card-img-container {
   position: relative;
   overflow: hidden;
   height: 220px;
+  transform: translateZ(40px);
+  transition: transform 0.4s ease;
 }
 
 .card-img-container img {
@@ -313,6 +315,7 @@ body {
   transition: transform 0.5s ease;
 }
 
+.card:hover .card-img-container { transform: translateZ(60px); }
 .card:hover .card-img-container img { transform: scale(1.08); }
 
 .img-overlay {
@@ -336,13 +339,22 @@ body {
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  transform: translateY(15px);
+  transform: translateY(15px) translateZ(20px);
   transition: transform 0.3s ease;
 }
 
-.card:hover .view-btn { transform: translateY(0); }
+.card:hover .view-btn { transform: translateY(0) translateZ(40px); }
 
-.card-body { padding: 24px; position: relative; }
+.card-body { 
+  padding: 24px; 
+  position: relative; 
+  transform: translateZ(30px);
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card-body {
+  transform: translateZ(45px);
+}
 
 .card-body h3 {
   font-size: 24px;
