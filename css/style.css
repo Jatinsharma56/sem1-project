@@ -70,30 +70,24 @@ body {
 }
 
 .logo {
-  font-size: 26px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 6px;
   transition: transform 0.3s;
+  color: #fff;
+  text-align: center;
 }
 
-.logo span { color: var(--accent); }
-
-/* SVG Logo Animation */
-.car-logo-icon {
-  margin-right: 8px;
-  vertical-align: middle;
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
 }
-.car-logo-icon .car-body {
-  stroke-dasharray: 100;
-  stroke-dashoffset: 100;
-  animation: drawCar 2s ease forwards, glowPulse 3s infinite alternate;
-}
-@keyframes drawCar {
-  to { stroke-dashoffset: 0; }
-}
-@keyframes glowPulse {
-  from { filter: drop-shadow(0 0 2px var(--accent)); }
-  to { filter: drop-shadow(0 0 10px var(--accent)); }
+.nav-left:hover, .nav-right:hover {
+  opacity: 1;
 }
 
 .navbar ul {
@@ -130,38 +124,34 @@ body {
 
 /* ===== HERO ===== */
 .hero {
-  background-image: url("../images/luxury_hero_bg.png");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
   height: 100vh;
   position: relative;
   display: flex;
   align-items: center;
-  padding: 0 10%;
+  justify-content: center;
+  padding: 0;
   overflow: hidden;
+  background: #000;
 }
-.hero {
-  background-image: url("../images/luxury_hero_bg.png");
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: 0 80px;
+
+.hero-bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  opacity: 0.7;
 }
 
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    115deg,
-    rgba(2, 2, 4, 0.97) 0%,
-    rgba(2, 2, 4, 0.75) 55%,
-    rgba(2, 2, 4, 0.4) 100%
-  );
+  background: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 
@@ -169,60 +159,34 @@ body {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(2,2,4,1) 0%, transparent 40%);
+  background: linear-gradient(to top, rgba(2,2,4,1) 0%, transparent 20%);
   z-index: 1;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 700px;
+  width: 100%;
 }
 
-.hero-eyebrow {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 30px;
-  display: block;
-  border-left: 2px solid var(--accent);
-  padding-left: 14px;
-}
-
-.hero-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 110px;
-  font-weight: 300;
-  letter-spacing: 8px;
-  line-height: 1;
-  text-transform: uppercase;
+.hero-signature {
+  font-family: 'Alex Brush', cursive;
+  font-size: 220px;
+  font-weight: 400;
   color: #fff;
-  margin-bottom: 8px;
+  line-height: 1;
+  text-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  margin-bottom: 20px;
+  transform: rotate(-3deg);
 }
 
-.accent-thin {
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255,255,255,0.25);
-  letter-spacing: 10px;
-}
-
-.hero-divider {
-  width: 60px;
-  height: 1px;
-  background: var(--accent);
-  margin: 30px 0;
-  box-shadow: 0 0 10px var(--accent);
-}
-
-.hero-sub {
-  font-size: 13px;
-  font-weight: 300;
-  letter-spacing: 4px;
-  color: var(--chrome);
+.hero-tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 12px;
+  color: #fff;
   text-transform: uppercase;
-  margin-bottom: 45px;
 }
 
 /* Scroll Indicator */

@@ -8,7 +8,7 @@
   <!-- Bugatti-style Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600;700&family=Rajdhani:wght@400;600;700&family=Alex+Brush&display=swap" rel="stylesheet">
   <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
@@ -54,56 +54,36 @@
     </div>
   </div>
 
-  <!-- NAVBAR -->
+  <!-- NAVBAR (Bugatti Screenshot Replica) -->
   <nav class="navbar" id="navbar">
-    <div class="logo">
-      <svg class="car-logo-icon" viewBox="0 0 64 24" width="50" height="18" xmlns="http://www.w3.org/2000/svg">
-        <path class="car-body" d="M4 20 L8 12 C12 8 20 6 32 6 C48 6 56 12 60 16 L62 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-        <path class="car-window" d="M14 12 L30 6" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-        <circle class="car-wheel" cx="16" cy="20" r="3" fill="var(--accent)"/>
-        <circle class="car-wheel" cx="48" cy="20" r="3" fill="var(--accent)"/>
-      </svg>
-      LUXURY <span>HUB</span>
+    <div class="nav-left">
+      <i class="fa-solid fa-bars" style="margin-right: 12px; font-size: 16px;"></i>
+      <span style="font-size: 11px; letter-spacing: 2px; font-weight: 500;">MENU</span>
     </div>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#models">Models</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="logo">
+      BUGATTI
+    </div>
+    <div class="nav-right">
+      <span style="font-size: 11px; letter-spacing: 2px; margin-right: 12px; font-weight: 500;">STORE</span>
+      <i class="fa-solid fa-bag-shopping" style="font-size: 16px;"></i>
+    </div>
   </nav>
 
-  <!-- HERO -->
-  <section id="home" class="hero">
+  <!-- HERO (Bugatti Screenshot Replica) -->
+  <section id="home" class="hero bugatti-hero">
+    <!-- Video background representing a car driving on a highway -->
+    <video autoplay muted loop playsinline class="hero-bg-video">
+      <source src="https://videos.pexels.com/video-files/5309381/5309381-uhd_2560_1440_25fps.mp4" type="video/mp4">
+    </video>
     <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow reveal-up">Est. Shimla, Himachal Pradesh</p>
-      <h1 class="hero-title reveal-up">PRESTIGE</h1>
-      <h1 class="hero-title accent-thin reveal-up">MOTORS</h1>
-      <div class="hero-divider reveal-up"></div>
-      <p class="hero-sub reveal-up">Power. Precision. Perfection.</p>
-      <a href="#models" class="btn-bugatti reveal-up">DISCOVER THE COLLECTION <i class="fa-solid fa-arrow-right"></i></a>
+    
+    <div class="hero-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; text-align: center;">
+      <h1 class="hero-signature reveal-up">Chiron</h1>
+      <p class="hero-tagline reveal-up">BEAUTY MEETS BEAST</p>
     </div>
+    
     <div class="hero-scroll-indicator">
-      <span>SCROLL</span>
       <div class="scroll-line"></div>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <span class="stat-num">9</span>
-        <span class="stat-label">Legendary Models</span>
-      </div>
-      <div class="hero-stat-divider"></div>
-      <div class="hero-stat">
-        <span class="stat-num">1600+</span>
-        <span class="stat-label">Max Horsepower</span>
-      </div>
-      <div class="hero-stat-divider"></div>
-      <div class="hero-stat">
-        <span class="stat-num">482</span>
-        <span class="stat-label">Top Speed KM/H</span>
-      </div>
     </div>
   </section>
 
