@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
       body.className = "";
       body.classList.add(`theme-${color}`);
 
-      showToast(`BMW Theme switched to ${color.toUpperCase()}! 🎨`);
+      showToast(`Theme switched to ${color.toUpperCase()}! 🎨`);
     });
   });
 
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const model = document.getElementById("form-model").value;
 
     // Show booking toast success
-    showToast(`🏁 Success! Test Drive booked for ${model}. Our representative will contact you in Shimla soon!`);
+    showToast(`🏁 Success! Inquiry sent for ${model}. Our representative will contact you soon!`);
 
     // Reset Form
     bookingForm.reset();

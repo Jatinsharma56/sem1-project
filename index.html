@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BMW Hub – The Ultimate Driving Machine</title>
+  <title>Luxury Auto Hub – The Ultimate Driving Experience</title>
   <link rel="stylesheet" href="css/style.css">
   <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
-<body class="theme-blue">
+<body class="theme-red">
 
-  <!-- PRELOADER (BMW SPINNING LOGO & ENGINE SOUND) -->
+  <!-- PRELOADER -->
   <div id="preloader">
     <div class="loader-wrapper">
       <!-- Start Button overlay -->
@@ -21,20 +21,12 @@
         </button>
       </div>
       
-      <!-- Logo and progress hidden until clicked -->
+      <!-- Speedometer and progress hidden until clicked -->
       <div id="loader-active-content" class="hidden">
-        <div class="bmw-logo-spinner">
-          <div class="bmw-outer-ring">
-            <span class="bmw-text t-b">B</span>
-            <span class="bmw-text t-m">M</span>
-            <span class="bmw-text t-w">W</span>
-          </div>
-          <div class="bmw-inner-quads">
-            <div class="quad blue"></div>
-            <div class="quad white"></div>
-            <div class="quad white"></div>
-            <div class="quad blue"></div>
-          </div>
+        <div class="speedometer">
+          <div class="speed-dial"></div>
+          <div class="speed-needle"></div>
+          <div class="speed-center"></div>
         </div>
         <div class="loader-bar-container">
           <div class="loader-bar"></div>
@@ -46,7 +38,7 @@
 
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
-    <div class="logo">🚗 BMW <span>HUB</span></div>
+    <div class="logo">🚗 LUXURY <span>HUB</span></div>
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#models">Models</a></li>
@@ -60,188 +52,159 @@
   <section id="home" class="hero">
     <div class="hero-content">
       <span class="badge">Performance Redefined</span>
-      <h1>THE ULTIMATE</h1>
-      <h1 class="accent-text">DRIVING MACHINE</h1>
-      <p>Experience power, precision, and pure luxury. Explore BMW's legendary lineup built for those who dare to drive.</p>
+      <h1>PRESTIGE</h1>
+      <h1 class="accent-text">MOTORS</h1>
+      <p>Experience power, precision, and pure luxury. Explore the world's most legendary lineup of supercars built for those who dare to drive.</p>
       
       <!-- Interactive Color Selector -->
       <div class="color-selector-container">
         <span>Customize Theme Color:</span>
         <div class="colors">
-          <div class="color-dot blue active" data-color="blue" title="M Power Blue"></div>
-          <div class="color-dot red" data-color="red" title="Sport Red"></div>
-          <div class="color-dot gold" data-color="gold" title="M Sunset Gold"></div>
+          <div class="color-dot blue" data-color="blue" title="Sapphire Blue"></div>
+          <div class="color-dot red active" data-color="red" title="Rosso Corsa Red"></div>
+          <div class="color-dot gold" data-color="gold" title="Champagne Gold"></div>
         </div>
       </div>
 
-      <a href="#models" class="btn-primary">EXPLORE MODELS <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="#models" class="btn-primary">EXPLORE COLLECTION <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </section>
 
   <!-- TOP MODELS -->
   <section id="models" class="models">
     <div class="section-header">
-      <h2>TOP <span>MODELS</span></h2>
-      <p>BMW's most iconic and best-selling cars of all time. Click any car to view full specifications.</p>
+      <h2>PREMIUM <span>COLLECTION</span></h2>
+      <p>The most iconic and best-selling supercars of all time. Click any car to view full specifications.</p>
     </div>
 
     <div class="cards">
 
-      <div class="card" data-model="BMW M3" data-hp="503 HP" data-time="3.5s" data-speed="290 km/h" data-price="₹ 1.2 Crore" data-img="images/world.png" data-desc="The BMW M3 Sedan combines athletic proportions and a classic three-box design with the sportiness typical of M series. Powered by a twin-turbo inline 6-cylinder engine.">
+      <div class="card" data-model="Rolls-Royce Phantom" data-hp="563 HP" data-time="5.1s" data-speed="250 km/h" data-price="₹ 9.5 Crore" data-img="images/luxury_rolls_royce.png" data-desc="The Phantom is the ultimate expression of Rolls-Royce luxury. A serene, silent cabin powered by a massive V12 engine ensures the smoothest ride possible.">
         <div class="card-img-container">
-          <img src="images/world.png" alt="BMW M3">
+          <img src="images/luxury_rolls_royce.png" alt="Rolls-Royce Phantom">
           <div class="img-overlay"><span class="view-btn">View Specs</span></div>
         </div>
         <div class="card-body">
-          <h3>BMW M3</h3>
-          <p>Sport Sedan · 503 HP · 0–100 in 3.5s</p>
-          <span class="tag">SPORT</span>
-        </div>
-      </div>
-
-      <div class="card" data-model="BMW 7 Series" data-hp="536 HP" data-time="4.2s" data-speed="250 km/h" data-price="₹ 1.8 Crore" data-img="images/t.png" data-desc="The BMW 7 Series represents the pinnacle of luxury, combining executive-level passenger comfort with state-of-the-art cinematic theatre screen entertainment and majestic driving presence.">
-        <div class="card-img-container">
-          <img src="images/t.png" alt="BMW 7 Series">
-          <div class="img-overlay"><span class="view-btn">View Specs</span></div>
-        </div>
-        <div class="card-body">
-          <h3>BMW 7 Series</h3>
-          <p>Luxury Sedan · 536 HP · Executive Class</p>
+          <h3>Rolls-Royce Phantom</h3>
+          <p>Ultimate Luxury · 563 HP · V12 Engine</p>
           <span class="tag">LUXURY</span>
         </div>
       </div>
 
-      <div class="card" data-model="BMW X5" data-hp="456 HP" data-time="4.8s" data-speed="243 km/h" data-price="₹ 98 Lakhs" data-img="images/AB.png" data-desc="The BMW X5 is a powerful luxury SUV that delivers supreme off-road performance, immense towing capabilities, and premium interior craftsmanship for the ultimate family adventure.">
+      <div class="card" data-model="Lamborghini Aventador" data-hp="770 HP" data-time="2.8s" data-speed="350 km/h" data-price="₹ 6.2 Crore" data-img="images/luxury_lambo.png" data-desc="The Aventador is a raw, screaming V12 supercar. With its aggressive wedge shape and scissor doors, it is the poster car for extreme performance.">
         <div class="card-img-container">
-          <img src="images/AB.png" alt="BMW X5">
+          <img src="images/luxury_lambo.png" alt="Lamborghini Aventador">
           <div class="img-overlay"><span class="view-btn">View Specs</span></div>
         </div>
         <div class="card-body">
-          <h3>BMW X5</h3>
-          <p>Luxury SUV · 456 HP · All-Terrain King</p>
+          <h3>Lamborghini Aventador</h3>
+          <p>Supercar · 770 HP · 0–100 in 2.8s</p>
+          <span class="tag">SUPERCAR</span>
+        </div>
+      </div>
+
+      <div class="card" data-model="Mercedes-AMG G 63" data-hp="577 HP" data-time="4.5s" data-speed="220 km/h" data-price="₹ 3.3 Crore" data-img="images/luxury_mercedes_g.png" data-desc="The iconic G-Class combines go-anywhere off-road capability with a luxurious cabin and a roaring twin-turbo V8 engine.">
+        <div class="card-img-container">
+          <img src="images/luxury_mercedes_g.png" alt="Mercedes-AMG G 63">
+          <div class="img-overlay"><span class="view-btn">View Specs</span></div>
+        </div>
+        <div class="card-body">
+          <h3>Mercedes-AMG G 63</h3>
+          <p>Luxury SUV · 577 HP · V8 Biturbo</p>
           <span class="tag">SUV</span>
         </div>
       </div>
 
-      <div class="card" data-model="BMW M5" data-hp="625 HP" data-time="3.3s" data-speed="305 km/h" data-price="₹ 1.7 Crore" data-img="images/1.png" data-desc="The BMW M5 Competition is a track-ready executive super sedan. Armed with an aggressive 4.4L TwinPower Turbo V8, it offers jaw-dropping acceleration with xDrive traction control.">
+      <div class="card" data-model="Porsche 911 GT3" data-hp="502 HP" data-time="3.2s" data-speed="318 km/h" data-price="₹ 2.5 Crore" data-img="images/luxury_porsche.png" data-desc="A street-legal track car. The 911 GT3 delivers razor-sharp handling and a naturally aspirated flat-six engine that revs to 9,000 RPM.">
         <div class="card-img-container">
-          <img src="images/1.png" alt="BMW M5">
+          <img src="images/luxury_porsche.png" alt="Porsche 911 GT3">
           <div class="img-overlay"><span class="view-btn">View Specs</span></div>
         </div>
         <div class="card-body">
-          <h3>BMW M5</h3>
-          <p>Super Sedan · 625 HP · 0–100 in 3.3s</p>
-          <span class="tag">M SERIES</span>
+          <h3>Porsche 911 GT3</h3>
+          <p>Track Sports Car · 502 HP · Flat-Six</p>
+          <span class="tag">TRACK</span>
         </div>
       </div>
 
-      <div class="card" data-model="BMW Z4" data-hp="382 HP" data-time="4.5s" data-speed="250 km/h" data-price="₹ 89 Lakhs" data-img="images/4.png" data-desc="An iconic open-top roadster. The BMW Z4 blends classic sports car proportions with cutting-edge tech, a lightning-fast soft top, and an agile chassis built for twisty mountain highways.">
+      <div class="card" data-model="Ferrari SF90 Stradale" data-hp="986 HP" data-time="2.5s" data-speed="340 km/h" data-price="₹ 7.5 Crore" data-img="images/luxury_ferrari.png" data-desc="Ferrari's first plug-in hybrid supercar. It pairs a twin-turbo V8 with three electric motors to deliver mind-bending hypercar acceleration.">
         <div class="card-img-container">
-          <img src="images/4.png" alt="BMW Z4">
+          <img src="images/luxury_ferrari.png" alt="Ferrari SF90 Stradale">
           <div class="img-overlay"><span class="view-btn">View Specs</span></div>
         </div>
         <div class="card-body">
-          <h3>BMW Z4</h3>
-          <p>Roadster · 382 HP · Open-Top Thrill</p>
-          <span class="tag">ROADSTER</span>
+          <h3>Ferrari SF90 Stradale</h3>
+          <p>Hybrid Hypercar · 986 HP · 0–100 in 2.5s</p>
+          <span class="tag">HYBRID</span>
         </div>
       </div>
 
-      <div class="card" data-model="BMW i8" data-hp="374 HP" data-time="4.4s" data-speed="250 km/h" data-price="₹ 2.2 Crore" data-img="images/5.png" data-desc="The BMW i8 is a revolutionary hybrid supercar featuring carbon-fiber dihedral scissor doors, futuristic aerodynamics, and an innovative gas-electric drive system.">
+      <div class="card" data-model="Aston Martin DBS" data-hp="715 HP" data-time="3.4s" data-speed="340 km/h" data-price="₹ 5.0 Crore" data-img="images/luxury_aston.png" data-desc="The ultimate British Grand Tourer. The DBS wraps a monstrous twin-turbo V12 engine in a stunningly beautiful carbon fiber body.">
         <div class="card-img-container">
-          <img src="images/5.png" alt="BMW i8">
+          <img src="images/luxury_aston.png" alt="Aston Martin DBS">
           <div class="img-overlay"><span class="view-btn">View Specs</span></div>
         </div>
         <div class="card-body">
-          <h3>BMW i8</h3>
-          <p>Hybrid Supercar · 374 HP · Future Icon</p>
-          <span class="tag">ELECTRIC</span>
+          <h3>Aston Martin DBS</h3>
+          <p>Grand Tourer · 715 HP · British Elegance</p>
+          <span class="tag">GT</span>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ABOUT BMW -->
+  <!-- ABOUT -->
   <section id="about" class="about">
     <div class="about-img">
-      <img src="images/22.png" alt="BMW Showroom">
+      <img src="images/luxury_hero_bg.png" alt="Luxury Showroom">
     </div>
     <div class="about-text">
-      <h2>BMW <span>BRAND PROFILE</span></h2>
-      <p>Bayerische Motoren Werke AG — the world's most iconic luxury car brand. Since 1916, BMW has defined performance, elegance, and engineering excellence across the globe.</p>
+      <h2>LUXURY <span>AUTO HUB</span></h2>
+      <p>The ultimate destination for automotive perfection. We curate the world's most exclusive supercars, hypercars, and luxury vehicles for elite clients who demand nothing but the best.</p>
 
-      <div class="info-row"><span>🏭</span><p>Founded: 7 March 1916, Munich, Germany</p></div>
-      <div class="info-row"><span>🌍</span><p>HQ: Munich, Bavaria, Germany</p></div>
-      <div class="info-row"><span>🚗</span><p>Segment: Luxury &amp; Performance Cars</p></div>
-      <div class="info-row"><span>🏆</span><p>Awards: World Car of the Year 2023</p></div>
-      <div class="info-row"><span>📊</span><p>Sales: 2.5 Million Cars Sold in 2023</p></div>
+      <div class="info-row"><span>🌍</span><p>Global Headquarters: Monaco, Europe</p></div>
+      <div class="info-row"><span>🚗</span><p>Segment: Supercars & Ultra-Luxury</p></div>
+      <div class="info-row"><span>🏆</span><p>Status: #1 Premium Dealer</p></div>
 
-      <a href="#contact" class="btn-primary">BOOK TEST DRIVE</a>
+      <a href="#contact" class="btn-primary">VISIT SHOWROOM</a>
     </div>
   </section>
 
   <!-- FEATURES -->
   <section id="features" class="features">
     <div class="section-header">
-      <h2>BMW <span>TECHNOLOGIES</span></h2>
-      <p>Cutting-edge innovations that make every BMW smarter, faster, and safer.</p>
-    </div>
-
-    <div class="feat-grid">
-      <div class="feat-card">
-        <div class="img-wrapper">
-          <img src="images/111.png" alt="M Performance">
-        </div>
-        <h3>⚡ M PERFORMANCE</h3>
-      </div>
-      <div class="feat-card">
-        <div class="img-wrapper">
-          <img src="images/222.png" alt="xDrive">
-        </div>
-        <h3>🛡️ XDRIVE AWD</h3>
-      </div>
-      <div class="feat-card">
-        <div class="img-wrapper">
-          <img src="images/333.png" alt="eDrive">
-        </div>
-        <h3>🔋 BMW eDRIVE</h3>
-      </div>
-      <div class="feat-card">
-        <div class="img-wrapper">
-          <img src="images/444.png" alt="iDrive">
-        </div>
-        <h3>🖥️ iDRIVE SYSTEM</h3>
-      </div>
+      <h2>NEXT-GEN <span>TECHNOLOGY</span></h2>
+      <p>Cutting-edge innovations that redefine the driving experience.</p>
     </div>
 
     <div class="tags-row">
-      <div>TWIN TURBO</div>
+      <div>V12 ENGINES</div>
+      <div>CARBON FIBER</div>
+      <div>AERO DYNAMICS</div>
+      <div>HYBRID DRIVE</div>
+      <div>TRACK MODE</div>
       <div>LAUNCH CONTROL</div>
-      <div>SPORT MODE</div>
-      <div>ADAPTIVE LED</div>
-      <div>HARMAN KARDON</div>
-      <div>LANE ASSIST</div>
-      <div>NIGHT VISION</div>
-      <div>WIRELESS CHARGING</div>
+      <div>CUSTOM INTERIORS</div>
+      <div>CARBON BRAKES</div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="contact">
     <div class="contact-left">
-      <h2>BOOK A <span>TEST DRIVE</span> 🚗</h2>
+      <h2>REQUEST <span>DETAILS</span> 🚗</h2>
 
       <div class="contact-info">
         <h4>SHOWROOM LOCATION</h4>
-        <p>BMW Premium Showroom,<br>Shimla, Himachal Pradesh 171001</p>
+        <p>Premium Luxury Motors,<br>Monaco</p>
       </div>
 
       <hr>
 
       <div class="contact-info">
-        <h4>CALL SALES TEAM</h4>
-        <p>+91 86288 06406<br>+91 98765 43210</p>
+        <h4>CONCIERGE DESK</h4>
+        <p>+377 12 34 56 78<br>vip@luxuryhub.com</p>
       </div>
     </div>
 
@@ -250,15 +213,15 @@
         <input type="text" placeholder="Your Name" required id="form-name">
         <input type="email" placeholder="Your Email" required id="form-email">
         <select id="form-model" required>
-          <option value="" disabled selected>Select BMW Model</option>
-          <option value="BMW M3">BMW M3</option>
-          <option value="BMW 7 Series">BMW 7 Series</option>
-          <option value="BMW X5">BMW X5</option>
-          <option value="BMW M5">BMW M5</option>
-          <option value="BMW Z4">BMW Z4</option>
-          <option value="BMW i8">BMW i8</option>
+          <option value="" disabled selected>Select Model of Interest</option>
+          <option value="Rolls-Royce Phantom">Rolls-Royce Phantom</option>
+          <option value="Lamborghini Aventador">Lamborghini Aventador</option>
+          <option value="Mercedes-AMG G 63">Mercedes-AMG G 63</option>
+          <option value="Porsche 911 GT3">Porsche 911 GT3</option>
+          <option value="Ferrari SF90 Stradale">Ferrari SF90 Stradale</option>
+          <option value="Aston Martin DBS">Aston Martin DBS</option>
         </select>
-        <textarea placeholder="Special requests or preferred time..." id="form-msg"></textarea>
+        <textarea placeholder="Special requests..." id="form-msg"></textarea>
         <button type="submit">SEND REQUEST</button>
       </form>
     </div>
@@ -266,9 +229,9 @@
 
   <!-- FOOTER -->
   <footer>
-    <h2>🚗 BMW HUB</h2>
-    <p>Drive. Perform. Dominate.</p>
-    <p class="copy">© 2026 BMW Hub — All Rights Reserved</p>
+    <h2>🚗 LUXURY HUB</h2>
+    <p>Prestige. Power. Perfection.</p>
+    <p class="copy">© 2026 Luxury Auto Hub — All Rights Reserved</p>
   </footer>
 
   <!-- DYNAMIC SPECIFICATIONS MODAL -->
@@ -281,7 +244,7 @@
           <img id="modal-img" src="" alt="Car Image">
         </div>
         <div class="modal-right">
-          <h2 id="modal-title">BMW Model</h2>
+          <h2 id="modal-title">Model Name</h2>
           <p id="modal-desc" class="modal-description">Car description goes here...</p>
           
           <div class="specs-list">
@@ -303,7 +266,7 @@
             </div>
           </div>
           
-          <button class="btn-primary modal-action-btn" id="modal-book-btn">Book Test Drive Now</button>
+          <button class="btn-primary modal-action-btn" id="modal-book-btn">Inquire Now</button>
         </div>
       </div>
     </div>
