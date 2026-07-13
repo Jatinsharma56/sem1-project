@@ -94,6 +94,8 @@ body {
   from { filter: drop-shadow(0 0 2px var(--accent)); }
   to { filter: drop-shadow(0 0 10px var(--accent)); }
 }
+
+.navbar ul {
   list-style: none;
   display: flex;
   gap: 35px;
@@ -986,53 +988,80 @@ footer .copy {
   transform: scale(1.1);
 }
 
-/* Digital Speedometer */
-.digital-speedometer {
+/* F1 Shift Light Speedometer */
+.f1-speedometer {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 320px;
   margin: 0 auto 30px;
+  text-align: center;
+  padding: 30px 20px;
+  background: rgba(10, 13, 20, 0.9);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.8), inset 0 0 10px rgba(0,0,0,0.5);
 }
-.digital-speedometer svg {
-  width: 100%;
-  height: 100%;
-  transform: rotate(-90deg);
+
+.shift-lights {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 30px;
 }
-.speed-value {
-  stroke-dasharray: 380;
-  stroke-dashoffset: 380;
-  animation: revGauge 5.5s cubic-bezier(0.1, 0.7, 0.1, 1) forwards;
-  filter: drop-shadow(0 0 15px rgba(230, 0, 38, 0.6));
+
+.shift-lights .light {
+  width: 16px;
+  height: 28px;
+  border-radius: 4px;
+  background: #111;
+  border: 1px solid #222;
+  transition: all 0.1s ease;
+  opacity: 0.3;
 }
-@keyframes revGauge {
-  0% { stroke-dashoffset: 380; }
-  20% { stroke-dashoffset: 280; }
-  35% { stroke-dashoffset: 350; }
-  60% { stroke-dashoffset: 150; }
-  75% { stroke-dashoffset: 250; }
-  100% { stroke-dashoffset: 40; }
+
+/* Unique Animation for Shift Lights */
+.shift-lights.revving .light:nth-child(1) { animation: lightUp 0.1s 0.2s forwards; }
+.shift-lights.revving .light:nth-child(2) { animation: lightUp 0.1s 0.6s forwards; }
+.shift-lights.revving .light:nth-child(3) { animation: lightUp 0.1s 1.0s forwards; }
+.shift-lights.revving .light:nth-child(4) { animation: lightUp 0.1s 1.4s forwards; }
+.shift-lights.revving .light:nth-child(5) { animation: lightUp 0.1s 1.8s forwards; }
+.shift-lights.revving .light:nth-child(6) { animation: lightUp 0.1s 2.3s forwards; }
+.shift-lights.revving .light:nth-child(7) { animation: lightUp 0.1s 2.8s forwards; }
+.shift-lights.revving .light:nth-child(8) { animation: lightUp 0.1s 3.3s forwards; }
+.shift-lights.revving .light:nth-child(9) { animation: lightUp 0.1s 3.8s forwards; }
+.shift-lights.revving .light:nth-child(10) { animation: lightUp 0.1s 4.4s forwards; }
+.shift-lights.revving .light:nth-child(11) { animation: lightBlink 0.1s 5.0s infinite alternate; }
+
+@keyframes lightUp {
+  to { opacity: 1; box-shadow: 0 0 15px currentColor; }
 }
+@keyframes lightBlink {
+  from { opacity: 0.3; box-shadow: none; }
+  to { opacity: 1; box-shadow: 0 0 25px currentColor; }
+}
+
+.light.green { color: #00ff00; }
+.light.yellow { color: #ffff00; }
+.light.red { color: #ff0000; }
+.light.blue { color: #0088ff; }
+
 .speed-text {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   text-align: center;
   color: #fff;
   font-family: 'Rajdhani', sans-serif;
 }
 .speed-number {
   display: block;
-  font-size: 48px;
+  font-size: 54px;
   font-weight: 900;
   line-height: 1;
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  margin-bottom: 5px;
 }
 .speed-unit {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--accent);
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
 /* Progress bar container */

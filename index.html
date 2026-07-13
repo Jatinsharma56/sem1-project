@@ -21,22 +21,22 @@
         </button>
       </div>
       
-      <!-- Premium Digital Speedometer -->
+      <!-- F1 Style Shift Light Speedometer -->
       <div id="loader-active-content" class="hidden">
-        <div class="digital-speedometer">
-          <svg viewBox="0 0 200 200">
-            <!-- Background Arc -->
-            <path class="speed-bg" d="M 40,160 A 80,80 0 1,1 160,160" fill="none" stroke="#222530" stroke-width="12" stroke-linecap="round"/>
-            <!-- Glow Arc -->
-            <path class="speed-value" d="M 40,160 A 80,80 0 1,1 160,160" fill="none" stroke="url(#gradient)" stroke-width="12" stroke-linecap="round"/>
-            <defs>
-              <linearGradient id="gradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#1C69D4" />
-                <stop offset="50%" stop-color="#D4AF37" />
-                <stop offset="100%" stop-color="#E60026" />
-              </linearGradient>
-            </defs>
-          </svg>
+        <div class="f1-speedometer">
+          <div class="shift-lights">
+            <div class="light green"></div>
+            <div class="light green"></div>
+            <div class="light green"></div>
+            <div class="light green"></div>
+            <div class="light green"></div>
+            <div class="light yellow"></div>
+            <div class="light yellow"></div>
+            <div class="light yellow"></div>
+            <div class="light red"></div>
+            <div class="light red"></div>
+            <div class="light blue"></div>
+          </div>
           <div class="speed-text">
             <span class="speed-number">0</span>
             <span class="speed-unit">KM/H</span>
@@ -173,42 +173,6 @@
         </div>
       </div>
 
-      <div class="card" data-model="Bugatti Chiron" data-hp="1479 HP" data-time="2.4s" data-speed="420 km/h" data-price="₹ 21 Crore" data-img="https://images.unsplash.com/photo-1600824424364-7762bc12daec?q=80&w=600&auto=format&fit=crop" data-img-rear="https://images.unsplash.com/photo-1600824424364-7762bc12daec?q=80&w=600&auto=format&fit=crop" data-img-int="https://images.unsplash.com/photo-1600824424364-7762bc12daec?q=80&w=600&auto=format&fit=crop" data-desc="The Chiron is a masterpiece of engineering, featuring a quad-turbo W16 engine. It redefines the limits of automotive performance and luxury.">
-        <div class="card-img-container">
-          <img src="https://images.unsplash.com/photo-1600824424364-7762bc12daec?q=80&w=600&auto=format&fit=crop" alt="Bugatti Chiron">
-          <div class="img-overlay"><span class="view-btn">View Specs</span></div>
-        </div>
-        <div class="card-body">
-          <h3>Bugatti Chiron</h3>
-          <p>Hypercar · 1479 HP · W16 Engine</p>
-          <span class="tag">HYPERCAR</span>
-        </div>
-      </div>
-
-      <div class="card" data-model="McLaren P1" data-hp="903 HP" data-time="2.8s" data-speed="350 km/h" data-price="₹ 10 Crore" data-img="https://images.unsplash.com/photo-1621252179027-94459d278660?q=80&w=600&auto=format&fit=crop" data-img-rear="https://images.unsplash.com/photo-1621252179027-94459d278660?q=80&w=600&auto=format&fit=crop" data-img-int="https://images.unsplash.com/photo-1621252179027-94459d278660?q=80&w=600&auto=format&fit=crop" data-desc="The McLaren P1 represents the pinnacle of hybrid track performance, combining Formula 1 tech with stunning carbon fiber aerodynamics.">
-        <div class="card-img-container">
-          <img src="https://images.unsplash.com/photo-1621252179027-94459d278660?q=80&w=600&auto=format&fit=crop" alt="McLaren P1">
-          <div class="img-overlay"><span class="view-btn">View Specs</span></div>
-        </div>
-        <div class="card-body">
-          <h3>McLaren P1</h3>
-          <p>Track Hypercar · 903 HP · Hybrid V8</p>
-          <span class="tag">TRACK</span>
-        </div>
-      </div>
-
-      <div class="card" data-model="Koenigsegg Jesko" data-hp="1600 HP" data-time="2.5s" data-speed="482 km/h" data-price="₹ 24 Crore" data-img="https://images.unsplash.com/photo-1614026480209-cd9934144671?q=80&w=600&auto=format&fit=crop" data-img-rear="https://images.unsplash.com/photo-1614026480209-cd9934144671?q=80&w=600&auto=format&fit=crop" data-img-int="https://images.unsplash.com/photo-1614026480209-cd9934144671?q=80&w=600&auto=format&fit=crop" data-desc="The Jesko is a Swedish megacar built to break world records. It features a revolutionary 9-speed Light Speed Transmission and extreme downforce.">
-        <div class="card-img-container">
-          <img src="https://images.unsplash.com/photo-1614026480209-cd9934144671?q=80&w=600&auto=format&fit=crop" alt="Koenigsegg Jesko">
-          <div class="img-overlay"><span class="view-btn">View Specs</span></div>
-        </div>
-        <div class="card-body">
-          <h3>Koenigsegg Jesko</h3>
-          <p>Megacar · 1600 HP · Extreme Aero</p>
-          <span class="tag">MEGACAR</span>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -278,9 +242,6 @@
           <option value="Porsche 911 GT3">Porsche 911 GT3</option>
           <option value="Ferrari SF90 Stradale">Ferrari SF90 Stradale</option>
           <option value="Aston Martin DBS">Aston Martin DBS</option>
-          <option value="Bugatti Chiron">Bugatti Chiron</option>
-          <option value="McLaren P1">McLaren P1</option>
-          <option value="Koenigsegg Jesko">Koenigsegg Jesko</option>
         </select>
         <textarea placeholder="Special requests..." id="form-msg"></textarea>
         <button type="submit">SEND REQUEST</button>

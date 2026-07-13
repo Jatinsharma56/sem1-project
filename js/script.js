@@ -20,6 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
       // 2. Hide button container, show loading animation
       startContainer.classList.add("hidden");
       loaderContent.classList.remove("hidden");
+      
+      // Trigger F1 Shift Lights animation
+      const shiftLights = document.querySelector(".shift-lights");
+      if (shiftLights) shiftLights.classList.add("revving");
 
       // 2.5 Animate digital speed number
       const speedNum = document.querySelector(".speed-number");
