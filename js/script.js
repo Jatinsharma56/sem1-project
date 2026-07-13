@@ -21,6 +21,25 @@ document.addEventListener("DOMContentLoaded", () => {
       startContainer.classList.add("hidden");
       loaderContent.classList.remove("hidden");
 
+      // 2.5 Animate digital speed number
+      const speedNum = document.querySelector(".speed-number");
+      if (speedNum) {
+        let startTime = null;
+        const duration = 5500;
+        const animateSpeed = (timestamp) => {
+          if (!startTime) startTime = timestamp;
+          const progress = (timestamp - startTime) / duration;
+          if (progress < 1) {
+            const speed = Math.floor(Math.pow(progress, 1.5) * 340);
+            speedNum.textContent = speed;
+            requestAnimationFrame(animateSpeed);
+          } else {
+            speedNum.textContent = 340;
+          }
+        };
+        requestAnimationFrame(animateSpeed);
+      }
+
       // 3. Keep loading for 5.5 seconds (5500ms), then fade out
       setTimeout(() => {
         if (preloader) {

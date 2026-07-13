@@ -21,12 +21,26 @@
         </button>
       </div>
       
-      <!-- Speedometer and progress hidden until clicked -->
+      <!-- Premium Digital Speedometer -->
       <div id="loader-active-content" class="hidden">
-        <div class="speedometer">
-          <div class="speed-dial"></div>
-          <div class="speed-needle"></div>
-          <div class="speed-center"></div>
+        <div class="digital-speedometer">
+          <svg viewBox="0 0 200 200">
+            <!-- Background Arc -->
+            <path class="speed-bg" d="M 40,160 A 80,80 0 1,1 160,160" fill="none" stroke="#222530" stroke-width="12" stroke-linecap="round"/>
+            <!-- Glow Arc -->
+            <path class="speed-value" d="M 40,160 A 80,80 0 1,1 160,160" fill="none" stroke="url(#gradient)" stroke-width="12" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#1C69D4" />
+                <stop offset="50%" stop-color="#D4AF37" />
+                <stop offset="100%" stop-color="#E60026" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="speed-text">
+            <span class="speed-number">0</span>
+            <span class="speed-unit">KM/H</span>
+          </div>
         </div>
         <div class="loader-bar-container">
           <div class="loader-bar"></div>
@@ -38,7 +52,15 @@
 
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
-    <div class="logo">🚗 LUXURY <span>HUB</span></div>
+    <div class="logo">
+      <svg class="car-logo-icon" viewBox="0 0 64 24" width="50" height="18" xmlns="http://www.w3.org/2000/svg">
+        <path class="car-body" d="M4 20 L8 12 C12 8 20 6 32 6 C48 6 56 12 60 16 L62 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <path class="car-window" d="M14 12 L30 6" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+        <circle class="car-wheel" cx="16" cy="20" r="3" fill="var(--accent)"/>
+        <circle class="car-wheel" cx="48" cy="20" r="3" fill="var(--accent)"/>
+      </svg>
+      LUXURY <span>HUB</span>
+    </div>
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#models">Models</a></li>
