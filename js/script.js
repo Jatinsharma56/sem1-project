@@ -162,7 +162,17 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll(".modal-slide").forEach(s => s.classList.remove("active"));
       viewBtns.forEach(b => b.classList.remove("active"));
       modalImg1.classList.add("active");
-      viewBtns[0].classList.add("active");
+      if (viewBtns.length > 0) viewBtns[0].classList.add("active");
+
+      // Hide slider controls if interior/rear images are identical to exterior
+      const sliderControls = document.querySelector(".slider-controls");
+      if (sliderControls) {
+        if (img1 === img2 && img1 === img3) {
+          sliderControls.style.display = "none";
+        } else {
+          sliderControls.style.display = "flex";
+        }
+      }
 
       // Open Modal
       specsModal.classList.add("open");
