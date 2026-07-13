@@ -69,7 +69,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalOverlay = document.querySelector(".modal-overlay");
 
   // Modal elements to update
-  const modalImg = document.getElementById("modal-img");
+  const modalImg1 = document.getElementById("modal-img-1");
+  const modalImg2 = document.getElementById("modal-img-2");
+  const modalImg3 = document.getElementById("modal-img-3");
+  const viewBtns = document.querySelectorAll(".view-btn-ctrl");
+  
   const modalTitle = document.getElementById("modal-title");
   const modalDesc = document.getElementById("modal-desc");
   const modalHp = document.getElementById("modal-hp");
@@ -86,12 +90,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const time = card.getAttribute("data-time");
       const speed = card.getAttribute("data-speed");
       const price = card.getAttribute("data-price");
-      const img = card.getAttribute("data-img");
+      const img1 = card.getAttribute("data-img");
+      const img2 = card.getAttribute("data-img-rear");
+      const img3 = card.getAttribute("data-img-int");
       const desc = card.getAttribute("data-desc");
 
       // Update modal contents
-      modalImg.src = img;
-      modalImg.alt = model;
+      modalImg1.src = img1;
+      modalImg2.src = img2;
+      modalImg3.src = img3;
+      
       modalTitle.textContent = model;
       modalDesc.textContent = desc;
       modalHp.textContent = hp;
@@ -99,9 +107,26 @@ document.addEventListener("DOMContentLoaded", () => {
       modalSpeed.textContent = speed;
       modalPrice.textContent = price;
 
+      // Reset gallery state to first image
+      document.querySelectorAll(".modal-slide").forEach(s => s.classList.remove("active"));
+      viewBtns.forEach(b => b.classList.remove("active"));
+      modalImg1.classList.add("active");
+      viewBtns[0].classList.add("active");
+
       // Open Modal
       specsModal.classList.add("open");
       document.body.style.overflow = "hidden"; // Prevent background scroll
+    });
+  });
+
+  // Slider Button Logic
+  viewBtns.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".modal-slide").forEach(s => s.classList.remove("active"));
+      viewBtns.forEach(b => b.classList.remove("active"));
+      
+      btn.classList.add("active");
+      document.getElementById(`modal-img-${index + 1}`).classList.add("active");
     });
   });
 
