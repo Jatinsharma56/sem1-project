@@ -976,7 +976,7 @@ footer .copy {
   height: 100%;
   background: var(--accent);
   border-radius: 2px;
-  animation: fillBar 4.5s linear forwards; /* Loaded over 4.5 seconds */
+  animation: fillBar 5.5s linear forwards; /* Loaded over 5.5 seconds */
 }
 
 .loader-text {

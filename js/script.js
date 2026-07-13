@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (startBtn) {
     startBtn.addEventListener("click", () => {
-      // 1. Play Exhaust Sound
-      const audioUrl = "https://www.orangefreesounds.com/wp-content/uploads/2017/08/Car-exhaust-sound.mp3";
+      // 1. Play Exhaust Sound (Aggressive sports car start & rev)
+      const audioUrl = "https://orangefreesounds.com/wp-content/uploads/2025/08/Car-engine-start-and-acceleration-sound-effect.mp3";
       const engineSound = new Audio(audioUrl);
-      engineSound.volume = 0.8; // Set volume to 80%
+      engineSound.volume = 0.95; // Boost volume to 95% for maximum impact
       engineSound.play().catch(error => {
         console.log("Audio play blocked by browser:", error);
       });
@@ -21,12 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
       startContainer.classList.add("hidden");
       loaderContent.classList.remove("hidden");
 
-      // 3. Keep loading for 4.5 seconds (4500ms), then fade out
+      // 3. Keep loading for 5.5 seconds (5500ms), then fade out
       setTimeout(() => {
         if (preloader) {
           preloader.classList.add("fade-out");
         }
-      }, 4500);
+      }, 5500);
     });
   }
   
