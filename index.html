@@ -3,307 +3,381 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luxury Auto Hub – The Ultimate Driving Experience</title>
+  <title>BUGATTI – Chiron | Beauty Meets Beast</title>
+  <meta name="description" content="BUGATTI – The world's most exclusive hyper sports cars. Experience the Chiron, Tourbillon, Mistral and Bolide.">
   <link rel="stylesheet" href="css/style.css">
-  <!-- Bugatti-style Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600;700&family=Rajdhani:wght@400;600;700&family=Alex+Brush&display=swap" rel="stylesheet">
-  <!-- FontAwesome for icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600;700&family=Rajdhani:wght@400;600;700&family=Alex+Brush&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
-<body class="theme-red">
+<body>
 
-  <!-- PRELOADER -->
+  <!-- ===== PRELOADER ===== -->
   <div id="preloader">
-    <div class="loader-wrapper">
-      <!-- Start Button overlay -->
-      <div id="start-engine-container">
-        <button id="start-btn" class="engine-start-btn">
-          <i class="fa-solid fa-power-off"></i>
-          <span>START ENGINE</span>
-        </button>
+    <div class="preloader-inner">
+      <div class="bugatti-emblem">
+        <div class="emblem-ring"></div>
+        <div class="emblem-text">BUGATTI</div>
       </div>
-      
-      <!-- F1 Style Shift Light Speedometer -->
-      <div id="loader-active-content" class="hidden">
-        <div class="f1-speedometer">
-          <div class="shift-lights">
-            <div class="light green"></div>
-            <div class="light green"></div>
-            <div class="light green"></div>
-            <div class="light green"></div>
-            <div class="light green"></div>
-            <div class="light yellow"></div>
-            <div class="light yellow"></div>
-            <div class="light yellow"></div>
-            <div class="light red"></div>
-            <div class="light red"></div>
-            <div class="light blue"></div>
-          </div>
-          <div class="speed-text">
-            <span class="speed-number">0</span>
-            <span class="speed-unit">KM/H</span>
-          </div>
-        </div>
-        <div class="loader-bar-container">
-          <div class="loader-bar"></div>
-        </div>
-        <p class="loader-text">REVVING THE ENGINE...</p>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar" id="preloader-bar"></div>
       </div>
+      <p class="preloader-label">INITIALISING EXPERIENCE</p>
     </div>
   </div>
 
-  <!-- NAVBAR (Bugatti Screenshot Replica) -->
+  <!-- ===== NAVBAR ===== -->
   <nav class="navbar" id="navbar">
-    <div class="nav-left">
-      <i class="fa-solid fa-bars" style="margin-right: 12px; font-size: 16px;"></i>
-      <span style="font-size: 11px; letter-spacing: 2px; font-weight: 500;">MENU</span>
+    <div class="nav-left" id="menu-toggle">
+      <span class="nav-icon-bar"></span>
+      <span class="nav-icon-bar"></span>
+      <span class="nav-label">MENU</span>
     </div>
-    <div class="logo">
-      BUGATTI
-    </div>
+    <div class="nav-logo">BUGATTI</div>
     <div class="nav-right">
-      <span style="font-size: 11px; letter-spacing: 2px; margin-right: 12px; font-weight: 500;">STORE</span>
-      <i class="fa-solid fa-bag-shopping" style="font-size: 16px;"></i>
+      <span class="nav-label">STORE</span>
+      <i class="fa-solid fa-bag-shopping nav-bag"></i>
     </div>
   </nav>
 
-  <!-- HERO (Bugatti Screenshot Replica) -->
-  <section id="home" class="hero bugatti-hero">
-    <!-- Cinematic Bugatti Background Image (YouTube blocked embedding) -->
-    <div class="hero-bg-video-wrapper">
-      <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=2000&auto=format&fit=crop" alt="Bugatti Chiron" class="hero-bg-video">
+  <!-- ===== FULLSCREEN NAV MENU ===== -->
+  <div class="fullscreen-menu" id="fullscreen-menu">
+    <button class="menu-close" id="menu-close"><i class="fa-solid fa-xmark"></i></button>
+    <div class="menu-inner">
+      <div class="menu-col">
+        <p class="menu-col-title">HYPER SPORTS CARS</p>
+        <a href="#chiron" class="menu-link" data-close>Chiron</a>
+        <a href="#tourbillon" class="menu-link" data-close>Tourbillon</a>
+        <a href="#mistral" class="menu-link" data-close>W16 Mistral</a>
+        <a href="#bolide" class="menu-link" data-close>Bolide</a>
+      </div>
+      <div class="menu-col">
+        <p class="menu-col-title">LA MARQUE</p>
+        <a href="#legacy" class="menu-link" data-close>Heritage</a>
+        <a href="#contact" class="menu-link" data-close>Contact</a>
+        <a href="#contact" class="menu-link" data-close>Sur Mesure</a>
+      </div>
+      <div class="menu-col">
+        <p class="menu-col-title">LIFESTYLE</p>
+        <a href="#" class="menu-link">Collection</a>
+        <a href="#" class="menu-link">Watches</a>
+        <a href="#" class="menu-link">Accessories</a>
+      </div>
     </div>
-    <div class="hero-overlay"></div>
+    <div class="menu-footer">
+      <p>© 2026 BUGATTI AUTOMOBILES S.A.S.</p>
+    </div>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-vignette"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">THE HYPER SPORTS CAR</p>
+      <h1 class="hero-title">Chiron</h1>
+
+      <!-- BUGATTI CAR IMAGE WITH 3D TILT -->
+      <div class="hero-car-wrap" id="hero-car-tilt">
+        <img src="images/user_bugatti_front_bw.jpg" alt="Bugatti Chiron" class="hero-car-img" id="hero-car-img">
+      </div>
+
+      <p class="hero-sub">BEAUTY MEETS BEAST</p>
+      <a href="#chiron-stats" class="hero-cta">
+        <span>DISCOVER MORE</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <div class="scroll-line-wrap">
+        <div class="scroll-line-inner"></div>
+      </div>
+      <span>SCROLL</span>
+    </div>
+
+    <!-- Corner stats -->
+    <div class="hero-corner-stats">
+      <div class="corner-stat">
+        <span class="cs-num">1,500</span>
+        <span class="cs-label">HORSEPOWER</span>
+      </div>
+      <div class="corner-divider"></div>
+      <div class="corner-stat">
+        <span class="cs-num">420</span>
+        <span class="cs-label">KM/H TOP SPEED</span>
+      </div>
+      <div class="corner-divider"></div>
+      <div class="corner-stat">
+        <span class="cs-num">2.4<small>s</small></span>
+        <span class="cs-label">0–100 KM/H</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CHIRON STATS BAR ===== -->
+  <section id="chiron-stats" class="stats-section">
+    <div class="stats-label-row">
+      <span class="stats-model-tag">BUGATTI CHIRON</span>
+      <div class="stats-rule"></div>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-item reveal-up">
+        <span class="stat-n" data-target="1500">0</span>
+        <span class="stat-unit">HP</span>
+        <p class="stat-desc">Maximum Power</p>
+      </div>
+      <div class="stat-item reveal-up">
+        <span class="stat-n" data-target="420">0</span>
+        <span class="stat-unit">KM/H</span>
+        <p class="stat-desc">Electronically Limited Top Speed</p>
+      </div>
+      <div class="stat-item reveal-up">
+        <span class="stat-n" data-target="1600">0</span>
+        <span class="stat-unit">NM</span>
+        <p class="stat-desc">Maximum Torque</p>
+      </div>
+      <div class="stat-item reveal-up">
+        <span class="stat-n" data-target="8">0</span>
+        <span class="stat-unit">L</span>
+        <p class="stat-desc">W16 Quad-Turbo Engine</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== UNIQUE INTERACTIVE EXPERIENCE ===== -->
+  <section id="experience" class="experience-section">
     
-    <div class="hero-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; text-align: center;">
-      <h1 class="hero-signature reveal-up">Chiron</h1>
-      <p class="hero-tagline reveal-up">BEAUTY MEETS BEAST</p>
+    <!-- 1. Rainy Weather Canvas Effect -->
+    <div class="exp-block rain-block reveal-up">
+      <div class="exp-img-wrap">
+        <img src="images/user_bugatti_rain.jpg" alt="Bugatti in Rain">
+        <canvas id="rain-canvas"></canvas>
+      </div>
+      <div class="exp-content">
+        <h3>WEATHER THE STORM</h3>
+        <p>A true hypercar dominates any element. (Hover/Touch over the image to increase the storm!)</p>
+      </div>
     </div>
-    
-    <div class="hero-scroll-indicator">
-      <div class="scroll-line"></div>
+
+    <!-- 2. Interactive Spotlight / Headlights -->
+    <div class="exp-block light-block reveal-up">
+      <div class="exp-img-wrap" id="spotlight-wrap">
+        <!-- Background dark image -->
+        <img src="images/user_bugatti_headlight.jpg" alt="Bugatti Headlights" class="spotlight-bg">
+        <!-- The spotlight overlay -->
+        <div class="spotlight-overlay" id="spotlight-overlay"></div>
+      </div>
+      <div class="exp-content">
+        <h3>PIERCING THE DARKNESS</h3>
+        <p>Signature 4-LED matrix headlights. (Move your cursor over the image to shine a light on the details!)</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== MODELS — FULL-SCREEN CARDS ===== -->
+  <section id="models" class="models-section">
+
+    <!-- CHIRON -->
+    <div class="model-block" id="chiron">
+      <div class="model-bg" style="background-image:url('images/bg_chiron.png')"></div>
+      <div class="model-overlay"></div>
+      <div class="model-content reveal-side">
+        <span class="model-tag">HYPER SPORTS CAR</span>
+        <h2 class="model-name">CHIRON</h2>
+        <p class="model-desc">The most powerful, fastest and most exclusive production super sports car in BUGATTI's history.</p>
+        <div class="model-specs">
+          <div class="mspec"><span>1,500 HP</span><small>Power</small></div>
+          <div class="mspec"><span>420 KM/H</span><small>Top Speed</small></div>
+          <div class="mspec"><span>₹ 28 CR</span><small>Starting Price</small></div>
+        </div>
+        <button class="model-btn" data-model="chiron">CONFIGURE</button>
+      </div>
+      <div class="model-car-showcase">
+        <img src="images/bg_chiron.png" alt="Bugatti Chiron" class="showcase-img">
+      </div>
+    </div>
+
+    <!-- TOURBILLON -->
+    <div class="model-block alt" id="tourbillon">
+      <div class="model-bg" style="background-image:url('images/user_bugatti_interior.jpg')"></div>
+      <div class="model-overlay"></div>
+      <div class="model-content reveal-side">
+        <span class="model-tag">THE NEXT ERA</span>
+        <h2 class="model-name">TOURBILLON</h2>
+        <p class="model-desc">The successor. Hybrid V16 technology meets timeless BUGATTI craftsmanship in an unprecedented masterpiece.</p>
+        <div class="model-specs">
+          <div class="mspec"><span>1,800 HP</span><small>Power</small></div>
+          <div class="mspec"><span>445 KM/H</span><small>Top Speed</small></div>
+          <div class="mspec"><span>₹ 42 CR</span><small>Starting Price</small></div>
+        </div>
+        <button class="model-btn" data-model="tourbillon">CONFIGURE</button>
+      </div>
+      <div class="model-car-showcase">
+        <img src="images/user_bugatti_interior.jpg" alt="Bugatti Tourbillon" class="showcase-img">
+      </div>
+    </div>
+
+    <!-- MISTRAL -->
+    <div class="model-block" id="mistral">
+      <div class="model-bg" style="background-image:url('images/user_bugatti_rear.jpg')"></div>
+      <div class="model-overlay"></div>
+      <div class="model-content reveal-side">
+        <span class="model-tag">W16 ROADSTER</span>
+        <h2 class="model-name">W16 MISTRAL</h2>
+        <p class="model-desc">The final open-top W16-engined BUGATTI. 99 examples. An incomparable farewell to the legendary engine.</p>
+        <div class="model-specs">
+          <div class="mspec"><span>1,600 HP</span><small>Power</small></div>
+          <div class="mspec"><span>420 KM/H</span><small>Top Speed</small></div>
+          <div class="mspec"><span>₹ 55 CR</span><small>Starting Price</small></div>
+        </div>
+        <button class="model-btn" data-model="mistral">CONFIGURE</button>
+      </div>
+      <div class="model-car-showcase">
+        <img src="images/user_bugatti_rear.jpg" alt="Bugatti W16 Mistral" class="showcase-img">
+      </div>
+    </div>
+
+    <!-- BOLIDE -->
+    <div class="model-block alt" id="bolide">
+      <div class="model-bg" style="background-image:url('images/bg_bolide.png')"></div>
+      <div class="model-overlay"></div>
+      <div class="model-content reveal-side">
+        <span class="model-tag">TRACK EXTREME</span>
+        <h2 class="model-name">BOLIDE</h2>
+        <p class="model-desc">The most extreme BUGATTI ever conceived. Born for the track. Engineered beyond all boundaries.</p>
+        <div class="model-specs">
+          <div class="mspec"><span>1,850 HP</span><small>Power</small></div>
+          <div class="mspec"><span>500+ KM/H</span><small>Calculated Top Speed</small></div>
+          <div class="mspec"><span>₹ 63 CR</span><small>Starting Price</small></div>
+        </div>
+        <button class="model-btn" data-model="bolide">CONFIGURE</button>
+      </div>
+      <div class="model-car-showcase">
+        <img src="images/bg_bolide.png" alt="Bugatti Bolide" class="showcase-img">
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== HERITAGE / BRAND STORY ===== -->
+  <section id="legacy" class="legacy-section reveal-up">
+    <div class="legacy-content">
+      <p class="legacy-eyebrow">LA MARQUE</p>
+      <h2 class="legacy-title">The Art of<br><em>Performance</em></h2>
+      <p class="legacy-text">Since 1909, BUGATTI has pushed the boundaries of what is possible. Ettore Bugatti's philosophy — that nothing is too beautiful, nothing is too expensive — remains the guiding principle of every single vehicle we create.</p>
+      <a href="#contact" class="legacy-cta">DISCOVER OUR HERITAGE <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="legacy-number">
+      <span>1909</span>
+      <small>EST. MOLSHEIM, FRANCE</small>
     </div>
   </section>
 
-  <!-- TOP MODELS -->
-  <section id="models" class="models">
-    <div class="section-header reveal-up">
-      <p class="section-eyebrow">Our Collection</p>
-      <h2>THE MACHINES</h2>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="cards">
-
-      <div class="card" data-model="Rolls-Royce Phantom" data-hp="563 HP" data-time="5.1s" data-speed="250 km/h" data-price="₹ 9.5 Crore" data-img="images/luxury_rolls_royce.png" data-img-rear="images/rr_rear.png" data-img-int="images/rr_int.png" data-desc="The Phantom is the ultimate expression of Rolls-Royce luxury. A serene, silent cabin powered by a massive V12 engine ensures the smoothest ride possible.">
-        <div class="card-img-container">
-          <img src="images/luxury_rolls_royce.png" alt="Rolls-Royce Phantom">
-          <div class="img-overlay"><span class="view-btn">View Specs</span></div>
-        </div>
-        <div class="card-body">
-          <h3>Rolls-Royce Phantom</h3>
-          <p>Ultimate Luxury · 563 HP · V12 Engine</p>
-          <span class="tag">LUXURY</span>
-        </div>
-      </div>
-
-      <div class="card" data-model="Lamborghini Aventador" data-hp="770 HP" data-time="2.8s" data-speed="350 km/h" data-price="₹ 6.2 Crore" data-img="images/luxury_lambo.png" data-img-rear="images/lambo_rear.png" data-img-int="images/lambo_int.png" data-desc="The Aventador is a raw, screaming V12 supercar. With its aggressive wedge shape and scissor doors, it is the poster car for extreme performance.">
-        <div class="card-img-container">
-          <img src="images/luxury_lambo.png" alt="Lamborghini Aventador">
-          <div class="img-overlay"><span class="view-btn">View Specs</span></div>
-        </div>
-        <div class="card-body">
-          <h3>Lamborghini Aventador</h3>
-          <p>Supercar · 770 HP · 0–100 in 2.8s</p>
-          <span class="tag">SUPERCAR</span>
-        </div>
-      </div>
-
-      <div class="card" data-model="Mercedes-AMG G 63" data-hp="577 HP" data-time="4.5s" data-speed="220 km/h" data-price="₹ 3.3 Crore" data-img="images/luxury_mercedes_g.png" data-img-rear="images/merc_rear.png" data-img-int="images/merc_int.png" data-desc="The iconic G-Class combines go-anywhere off-road capability with a luxurious cabin and a roaring twin-turbo V8 engine.">
-        <div class="card-img-container">
-          <img src="images/luxury_mercedes_g.png" alt="Mercedes-AMG G 63">
-          <div class="img-overlay"><span class="view-btn">View Specs</span></div>
-        </div>
-        <div class="card-body">
-          <h3>Mercedes-AMG G 63</h3>
-          <p>Luxury SUV · 577 HP · V8 Biturbo</p>
-          <span class="tag">SUV</span>
-        </div>
-      </div>
-
-      <div class="card" data-model="Porsche 911 GT3" data-hp="502 HP" data-time="3.2s" data-speed="318 km/h" data-price="₹ 2.5 Crore" data-img="images/luxury_porsche.png" data-img-rear="images/porsche_rear.png" data-img-int="images/porsche_int.png" data-desc="A street-legal track car. The 911 GT3 delivers razor-sharp handling and a naturally aspirated flat-six engine that revs to 9,000 RPM.">
-        <div class="card-img-container">
-          <img src="images/luxury_porsche.png" alt="Porsche 911 GT3">
-          <div class="img-overlay"><span class="view-btn">View Specs</span></div>
-        </div>
-        <div class="card-body">
-          <h3>Porsche 911 GT3</h3>
-          <p>Track Sports Car · 502 HP · Flat-Six</p>
-          <span class="tag">TRACK</span>
-        </div>
-      </div>
-
-      <div class="card" data-model="Ferrari SF90 Stradale" data-hp="986 HP" data-time="2.5s" data-speed="340 km/h" data-price="₹ 7.5 Crore" data-img="images/luxury_ferrari.png" data-img-rear="images/ferrari_rear.png" data-img-int="images/ferrari_int.png" data-desc="Ferrari's first plug-in hybrid supercar. It pairs a twin-turbo V8 with three electric motors to deliver mind-bending hypercar acceleration.">
-        <div class="card-img-container">
-          <img src="images/luxury_ferrari.png" alt="Ferrari SF90 Stradale">
-          <div class="img-overlay"><span class="view-btn">View Specs</span></div>
-        </div>
-        <div class="card-body">
-          <h3>Ferrari SF90 Stradale</h3>
-          <p>Hybrid Hypercar · 986 HP · 0–100 in 2.5s</p>
-          <span class="tag">HYBRID</span>
-        </div>
-      </div>
-
-      <div class="card" data-model="Aston Martin DBS" data-hp="715 HP" data-time="3.4s" data-speed="340 km/h" data-price="₹ 5.0 Crore" data-img="images/luxury_aston.png" data-img-rear="images/luxury_aston.png" data-img-int="images/luxury_aston.png" data-desc="The ultimate British Grand Tourer. The DBS wraps a monstrous twin-turbo V12 engine in a stunningly beautiful carbon fiber body.">
-        <div class="card-img-container">
-          <img src="images/luxury_aston.png" alt="Aston Martin DBS">
-          <div class="img-overlay"><span class="view-btn">View Specs</span></div>
-        </div>
-        <div class="card-body">
-          <h3>Aston Martin DBS</h3>
-          <p>Grand Tourer · 715 HP · British Elegance</p>
-          <span class="tag">GT</span>
-        </div>
-      </div>
-
+  <!-- ===== CONFIGURATOR CTA ===== -->
+  <section class="configure-section">
+    <div class="configure-inner">
+      <p class="configure-eyebrow">SUR MESURE</p>
+      <h2 class="configure-title">YOUR BUGATTI.<br>YOUR VISION.</h2>
+      <p class="configure-sub">Every BUGATTI is unique. Work with our designers to create a one-of-a-kind masterpiece tailored precisely to you.</p>
+      <a href="#contact" class="btn-bugatti-primary">BEGIN CONFIGURATION</a>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="about">
-    <div class="about-img">
-      <img src="images/luxury_hero_bg.png" alt="Luxury Showroom">
-    </div>
-    <div class="about-text">
-      <h2>LUXURY <span>AUTO HUB</span></h2>
-      <p>The ultimate destination for automotive perfection. We curate the world's most exclusive supercars, hypercars, and luxury vehicles for elite clients who demand nothing but the best.</p>
-
-      <div class="info-row"><span>🌍</span><p>Global Headquarters: Monaco, Europe</p></div>
-      <div class="info-row"><span>🚗</span><p>Segment: Supercars & Ultra-Luxury</p></div>
-      <div class="info-row"><span>🏆</span><p>Status: #1 Premium Dealer</p></div>
-
-      <a href="#contact" class="btn-primary">VISIT SHOWROOM</a>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section id="features" class="features">
-    <div class="section-header">
-      <h2>NEXT-GEN <span>TECHNOLOGY</span></h2>
-      <p>Cutting-edge innovations that redefine the driving experience.</p>
-    </div>
-
-    <div class="tags-row">
-      <div>V12 ENGINES</div>
-      <div>CARBON FIBER</div>
-      <div>AERO DYNAMICS</div>
-      <div>HYBRID DRIVE</div>
-      <div>TRACK MODE</div>
-      <div>LAUNCH CONTROL</div>
-      <div>CUSTOM INTERIORS</div>
-      <div>CARBON BRAKES</div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <div class="contact-left">
-      <h2>REQUEST <span>DETAILS</span> 🚗</h2>
-
-      <div class="contact-info">
-        <h4>SHOWROOM LOCATION</h4>
-        <p>Premium Luxury Motors,<br>Monaco</p>
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="contact-section">
+    <div class="contact-grid">
+      <div class="contact-info-block reveal-up">
+        <p class="contact-eyebrow">CONTACT US</p>
+        <h2 class="contact-title">REQUEST<br><span>DETAILS</span></h2>
+        <div class="contact-detail">
+          <h4>ATELIER</h4>
+          <p>Château Saint Jean<br>Molsheim, France</p>
+        </div>
+        <div class="contact-detail">
+          <h4>CONCIERGE</h4>
+          <p>+33 3 88 49 79 00<br>contact@bugatti.com</p>
+        </div>
       </div>
-
-      <hr>
-
-      <div class="contact-info">
-        <h4>CONCIERGE DESK</h4>
-        <p>+377 12 34 56 78<br>vip@luxuryhub.com</p>
+      <div class="contact-form-block">
+        <form id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" id="form-fname" placeholder="Jean">
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" id="form-lname" placeholder="Dupont">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="form-email" placeholder="jean.dupont@email.com">
+          </div>
+          <div class="form-group">
+            <label>Model of Interest</label>
+            <select id="form-model">
+              <option value="" disabled selected>Select a model</option>
+              <option>Chiron</option>
+              <option>Tourbillon</option>
+              <option>W16 Mistral</option>
+              <option>Bolide</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea id="form-msg" placeholder="Your enquiry..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">SEND ENQUIRY</button>
+        </form>
       </div>
     </div>
-
-    <div class="contact-right">
-      <form id="booking-form">
-        <input type="text" placeholder="Your Name" required id="form-name">
-        <input type="email" placeholder="Your Email" required id="form-email">
-        <select id="form-model" required>
-          <option value="" disabled selected>Select Model of Interest</option>
-          <option value="Rolls-Royce Phantom">Rolls-Royce Phantom</option>
-          <option value="Lamborghini Aventador">Lamborghini Aventador</option>
-          <option value="Mercedes-AMG G 63">Mercedes-AMG G 63</option>
-          <option value="Porsche 911 GT3">Porsche 911 GT3</option>
-          <option value="Ferrari SF90 Stradale">Ferrari SF90 Stradale</option>
-          <option value="Aston Martin DBS">Aston Martin DBS</option>
-        </select>
-        <textarea placeholder="Special requests..." id="form-msg"></textarea>
-        <button type="submit">SEND REQUEST</button>
-      </form>
-    </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <h2>🚗 LUXURY HUB</h2>
-    <p>Prestige. Power. Perfection.</p>
-    <p class="copy">© 2026 Luxury Auto Hub — All Rights Reserved</p>
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-logo">BUGATTI</div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Legal</a>
+        <a href="#">Cookie Settings</a>
+        <a href="#">Press</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 BUGATTI AUTOMOBILES S.A.S. All Rights Reserved.</p>
+      <p class="footer-tagline">BE DIFFERENT. BE BOLD. BE BUGATTI.</p>
+    </div>
   </footer>
 
-  <!-- DYNAMIC SPECIFICATIONS MODAL -->
-  <div class="modal" id="specs-modal">
-    <div class="modal-overlay"></div>
-    <div class="modal-content">
-      <button class="close-modal-btn"><i class="fa-solid fa-xmark"></i></button>
-      <div class="modal-grid">
-        <div class="modal-left">
-          <div class="modal-slider">
-            <img id="modal-img-1" class="modal-slide active" src="" alt="Front View">
-            <img id="modal-img-2" class="modal-slide" src="" alt="Rear View">
-            <img id="modal-img-3" class="modal-slide" src="" alt="Interior View">
-            
-            <div class="slider-controls">
-              <button class="view-btn-ctrl active" data-slide="0">Front</button>
-              <button class="view-btn-ctrl" data-slide="1">Rear</button>
-              <button class="view-btn-ctrl" data-slide="2">Interior</button>
-            </div>
-          </div>
-        </div>
-        <div class="modal-right">
-          <h2 id="modal-title">Model Name</h2>
-          <p id="modal-desc" class="modal-description">Car description goes here...</p>
-          
-          <div class="specs-list">
-            <div class="spec-item">
-              <span class="label"><i class="fa-solid fa-gauge"></i> Horsepower</span>
-              <span class="value" id="modal-hp">-</span>
-            </div>
-            <div class="spec-item">
-              <span class="label"><i class="fa-solid fa-bolt"></i> 0-100 km/h</span>
-              <span class="value" id="modal-time">-</span>
-            </div>
-            <div class="spec-item">
-              <span class="label"><i class="fa-solid fa-tachograph-digital"></i> Top Speed</span>
-              <span class="value" id="modal-speed">-</span>
-            </div>
-            <div class="spec-item">
-              <span class="label"><i class="fa-solid fa-indian-rupee-sign"></i> Est. Price</span>
-              <span class="value highlight" id="modal-price">-</span>
-            </div>
-          </div>
-          
-          <button class="btn-primary modal-action-btn" id="modal-book-btn">Inquire Now</button>
-        </div>
+  <!-- ===== MODEL ENQUIRY MODAL ===== -->
+  <div class="modal-wrap" id="model-modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-box">
+      <button class="modal-close-btn" id="modal-close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-car-img-wrap">
+        <img id="modal-car-img" src="" alt="">
+      </div>
+      <div class="modal-car-info">
+        <span id="modal-car-tag" class="modal-tag"></span>
+        <h2 id="modal-car-name"></h2>
+        <div class="modal-specs-row" id="modal-specs-row"></div>
+        <p id="modal-car-desc"></p>
+        <button class="btn-bugatti-primary" id="modal-enquire-btn">ENQUIRE NOW</button>
       </div>
     </div>
   </div>
 
-  <!-- TOAST NOTIFICATION CONTAINER -->
-  <div class="toast-container" id="toast-container"></div>
+  <!-- ===== TOAST ===== -->
+  <div id="toast-container"></div>
 
-  <!-- JAVASCRIPT -->
+  <!-- ===== SCRIPTS ===== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

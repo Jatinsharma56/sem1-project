@@ -1,276 +1,406 @@
-// Wait for the DOM to load
-document.addEventListener("DOMContentLoaded", () => {
-  
-  // 0. INTERACTIVE PRELOADER (ENGINE START BUTTON & AUDIO)
-  const preloader = document.getElementById("preloader");
-  const startBtn = document.getElementById("start-btn");
-  const startContainer = document.getElementById("start-engine-container");
-  const loaderContent = document.getElementById("loader-active-content");
+/* ============================================================
+   BUGATTI.COM REPLICA — JAVASCRIPT
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', () => {
 
-  if (startBtn) {
-    startBtn.addEventListener("click", () => {
-      // 1. Play Exhaust Sound (Aggressive sports car start & rev)
-      const audioUrl = "https://orangefreesounds.com/wp-content/uploads/2025/08/Car-engine-start-and-acceleration-sound-effect.mp3";
-      const engineSound = new Audio(audioUrl);
-      engineSound.volume = 0.95; // Boost volume to 95% for maximum impact
-      engineSound.play().catch(error => {
-        console.log("Audio play blocked by browser:", error);
-      });
+  // ============================================================
+  // 1. PRELOADER
+  // ============================================================
+  const preloader    = document.getElementById('preloader');
+  const preloaderBar = document.getElementById('preloader-bar');
+  let progress = 0;
 
-      // 2. Hide button container, show loading animation
-      startContainer.classList.add("hidden");
-      loaderContent.classList.remove("hidden");
-      
-      // Trigger F1 Shift Lights animation
-      const shiftLights = document.querySelector(".shift-lights");
-      if (shiftLights) shiftLights.classList.add("revving");
-
-      // 2.5 Animate digital speed number
-      const speedNum = document.querySelector(".speed-number");
-      if (speedNum) {
-        let startTime = null;
-        const duration = 5500;
-        const animateSpeed = (timestamp) => {
-          if (!startTime) startTime = timestamp;
-          const progress = (timestamp - startTime) / duration;
-          if (progress < 1) {
-            const speed = Math.floor(Math.pow(progress, 1.5) * 340);
-            speedNum.textContent = speed;
-            requestAnimationFrame(animateSpeed);
-          } else {
-            speedNum.textContent = 340;
-          }
-        };
-        requestAnimationFrame(animateSpeed);
-      }
-
-      // 3. Keep loading for 5.5 seconds (5500ms), then fade out
+  const loadInterval = setInterval(() => {
+    progress += Math.random() * 18;
+    if (progress >= 100) {
+      progress = 100;
+      clearInterval(loadInterval);
       setTimeout(() => {
-        if (preloader) {
-          preloader.classList.add("fade-out");
-        }
-      }, 5500);
+        preloader.classList.add('done');
+        document.body.style.overflow = 'auto';
+        initReveal();
+        initCounters();
+      }, 500);
+    }
+    preloaderBar.style.width = progress + '%';
+  }, 120);
+
+  document.body.style.overflow = 'hidden';
+
+  // ============================================================
+  // 2. NAVBAR SCROLL EFFECT
+  // ============================================================
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // ============================================================
+  // 3. FULLSCREEN MENU
+  // ============================================================
+  const menuToggle    = document.getElementById('menu-toggle');
+  const fullMenu      = document.getElementById('fullscreen-menu');
+  const menuClose     = document.getElementById('menu-close');
+  const menuLinks     = document.querySelectorAll('[data-close]');
+
+  const openMenu  = () => fullMenu.classList.add('open');
+  const closeMenu = () => fullMenu.classList.remove('open');
+
+  menuToggle.addEventListener('click', openMenu);
+  menuClose.addEventListener('click', closeMenu);
+  menuLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+  // Close on ESC
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // ============================================================
+  // 4. 3D TILT HERO CAR
+  // ============================================================
+  const heroCarWrap = document.getElementById('hero-car-tilt');
+  if (heroCarWrap && window.VanillaTilt) {
+    VanillaTilt.init(heroCarWrap, {
+      max:          12,
+      speed:        400,
+      glare:        true,
+      'max-glare':  0.2,
+      perspective:  1200,
+      scale:        1.03,
+      gyroscope:    true,
     });
   }
-  
-  // 1. STICKY NAVBAR GLASS EFFECT ON SCROLL
-  const navbar = document.getElementById("navbar");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add("scrolled");
-    } else {
-      navbar.classList.remove("scrolled");
+
+  // ============================================================
+  // 5. SCROLL REVEAL (Intersection Observer)
+  // ============================================================
+  function initReveal() {
+    const revealEls = document.querySelectorAll('.reveal-up, .reveal-side');
+    const observer  = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+    revealEls.forEach(el => observer.observe(el));
+  }
+
+  // ============================================================
+  // 6. ANIMATED STAT COUNTERS
+  // ============================================================
+  function initCounters() {
+    const counters = document.querySelectorAll('.stat-n[data-target]');
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(el => counterObserver.observe(el));
+  }
+
+  function animateCounter(el) {
+    const target   = parseInt(el.dataset.target);
+    const duration = 2200;
+    const step     = 16;
+    const increment = target / (duration / step);
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = Math.floor(current).toLocaleString();
+    }, step);
+  }
+
+  // ============================================================
+  // 7. MODEL DATA
+  // ============================================================
+  const models = {
+    chiron: {
+      tag:   'HYPER SPORTS CAR',
+      name:  'CHIRON',
+      img:   'images/bg_chiron.png',
+      desc:  'The most powerful, fastest and most exclusive production super sports car in BUGATTI\'s history. Its 8.0-litre quad-turbocharged W16 engine produces 1,500 PS and 1,600 Nm of torque.',
+      specs: [
+        { val: '1,500 HP', label: 'Power' },
+        { val: '420 KM/H', label: 'Top Speed' },
+        { val: '2.4s',     label: '0–100 KM/H' },
+        { val: '₹28 CR',   label: 'Est. Price' },
+      ]
+    },
+    tourbillon: {
+      tag:   'THE NEXT ERA',
+      name:  'TOURBILLON',
+      img:   'images/bg_tourbillon.png',
+      desc:  'The successor to the Chiron era. A naturally aspirated V16 hybrid with three electric motors. Purely mechanical instruments at its heart. The pinnacle of BUGATTI engineering.',
+      specs: [
+        { val: '1,800 HP', label: 'Power' },
+        { val: '445 KM/H', label: 'Top Speed' },
+        { val: '2.0s',     label: '0–100 KM/H' },
+        { val: '₹42 CR',   label: 'Est. Price' },
+      ]
+    },
+    mistral: {
+      tag:   'W16 ROADSTER',
+      name:  'W16 MISTRAL',
+      img:   'images/bg_mistral.png',
+      desc:  'The world\'s fastest roadster. 99 examples only. The final chapter of the legendary W16 engine, open to the sky, unbridled.',
+      specs: [
+        { val: '1,600 HP', label: 'Power' },
+        { val: '420 KM/H', label: 'Top Speed' },
+        { val: '2.4s',     label: '0–100 KM/H' },
+        { val: '₹55 CR',   label: 'Est. Price' },
+      ]
+    },
+    bolide: {
+      tag:   'TRACK EXTREME',
+      name:  'BOLIDE',
+      img:   'images/bg_bolide.png',
+      desc:  'The most extreme BUGATTI ever conceived. A 1,850 HP track beast stripped of all excess. Born from racing DNA. Built to shatter every limit.',
+      specs: [
+        { val: '1,850 HP',  label: 'Power' },
+        { val: '500+ KM/H', label: 'Calc. Top Speed' },
+        { val: '2.1s',      label: '0–100 KM/H' },
+        { val: '₹63 CR',    label: 'Est. Price' },
+      ]
     }
+  };
+
+  // ============================================================
+  // 8. MODEL MODAL
+  // ============================================================
+  const modalWrap      = document.getElementById('model-modal');
+  const modalClose     = document.getElementById('modal-close');
+  const modalBackdrop  = modalWrap.querySelector('.modal-backdrop');
+  const modalCarImg    = document.getElementById('modal-car-img');
+  const modalCarTag    = document.getElementById('modal-car-tag');
+  const modalCarName   = document.getElementById('modal-car-name');
+  const modalSpecsRow  = document.getElementById('modal-specs-row');
+  const modalCarDesc   = document.getElementById('modal-car-desc');
+  const modalEnquire   = document.getElementById('modal-enquire-btn');
+
+  function openModal(modelKey) {
+    const m = models[modelKey];
+    if (!m) return;
+
+    modalCarImg.src    = m.img;
+    modalCarImg.alt    = m.name;
+    modalCarTag.textContent  = m.tag;
+    modalCarName.textContent = m.name;
+    modalCarDesc.textContent = m.desc;
+
+    modalSpecsRow.innerHTML = m.specs.map(s => `
+      <div class="modal-spec">
+        <span>${s.val}</span>
+        <small>${s.label}</small>
+      </div>
+    `).join('');
+
+    modalWrap.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    // Link enquire button to contact form
+    modalEnquire.onclick = () => {
+      closeModal();
+      const formModel = document.getElementById('form-model');
+      if (formModel) formModel.value = m.name;
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => document.getElementById('form-fname').focus(), 800);
+    };
+  }
+
+  function closeModal() {
+    modalWrap.classList.remove('open');
+    document.body.style.overflow = 'auto';
+  }
+
+  modalClose.addEventListener('click', closeModal);
+  modalBackdrop.addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  // Attach CONFIGURE buttons
+  document.querySelectorAll('.model-btn').forEach(btn => {
+    btn.addEventListener('click', () => openModal(btn.dataset.model));
   });
 
-  // 1.5 BUGATTI-STYLE SCROLL REVEAL (Intersection Observer)
-  const revealEls = document.querySelectorAll(".reveal-up");
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        revealObserver.unobserve(entry.target); // Animate once
+  // ============================================================
+  // 9. CONTACT FORM
+  // ============================================================
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fname = document.getElementById('form-fname').value.trim();
+      const model = document.getElementById('form-model').value;
+      if (!fname || !model) {
+        showToast('Please fill in all required fields.', 'error');
+        return;
+      }
+      showToast(`Enquiry sent for ${model}. Our team will contact you soon.`);
+      contactForm.reset();
+    });
+  }
+
+  // ============================================================
+  // 10. TOAST NOTIFICATIONS
+  // ============================================================
+  function showToast(msg, type = 'success') {
+    const container = document.getElementById('toast-container');
+    const toast     = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `
+      <i class="fa-solid ${type === 'error' ? 'fa-circle-exclamation' : 'fa-circle-check'}"></i>
+      <span>${msg}</span>
+    `;
+    container.appendChild(toast);
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => toast.classList.add('show'));
+    });
+
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => toast.remove(), 500);
+    }, 4500);
+  }
+
+  // ============================================================
+  // 11. SMOOTH PARALLAX ON MODEL BG
+  // ============================================================
+  const modelBgs = document.querySelectorAll('.model-bg');
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    modelBgs.forEach(bg => {
+      const parent = bg.parentElement;
+      const rect   = parent.getBoundingClientRect();
+      if (rect.bottom > 0 && rect.top < window.innerHeight) {
+        const offset = (rect.top / window.innerHeight) * 30;
+        bg.style.transform = `scale(1.05) translateY(${offset}px)`;
       }
     });
-  }, { threshold: 0.1, rootMargin: "0px 0px -60px 0px" });
-  revealEls.forEach(el => revealObserver.observe(el));
+  }, { passive: true });
 
-  // Trigger hero animations on load
-  setTimeout(() => {
-    document.querySelectorAll(".hero .reveal-up").forEach(el => el.classList.add("visible"));
-  }, 200);
+  // ============================================================
+  // 12. RAIN CANVAS EFFECT
+  // ============================================================
+  const canvas = document.getElementById('rain-canvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+    let isHoveringRain = false;
 
-  // 2. DYNAMIC THEMING / COLOR CUSTOMIZER
-  const colorDots = document.querySelectorAll(".color-dot");
-  const body = document.body;
+    function resizeCanvas() {
+      width = canvas.parentElement.clientWidth;
+      height = canvas.parentElement.clientHeight;
+      canvas.width = width;
+      canvas.height = height;
+    }
 
-  colorDots.forEach(dot => {
-    dot.addEventListener("click", () => {
-      // Remove active class from all dots
-      colorDots.forEach(d => d.classList.remove("active"));
-      // Add active to current
-      dot.classList.add("active");
+    function createParticles() {
+      particles = [];
+      const numParticles = 100;
+      for (let i = 0; i < numParticles; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          length: Math.random() * 20 + 10,
+          speed: Math.random() * 10 + 10,
+          opacity: Math.random() * 0.5 + 0.1
+        });
+      }
+    }
+
+    function drawRain() {
+      ctx.clearRect(0, 0, width, height);
+      // If hovering, make it storm faster/denser!
+      const speedMult = isHoveringRain ? 2.5 : 1;
+      const opacityMult = isHoveringRain ? 1.5 : 1;
+
+      ctx.lineWidth = 1;
+      ctx.lineCap = 'round';
       
-      // Get selected color
-      const color = dot.getAttribute("data-color");
-      
-      // Reset body class list for theme
-      body.className = "";
-      body.classList.add(`theme-${color}`);
+      particles.forEach(p => {
+        ctx.strokeStyle = `rgba(255,255,255,${p.opacity * opacityMult})`;
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(p.x - p.length * 0.2, p.y + p.length * speedMult);
+        ctx.stroke();
 
-      showToast(`Theme switched to ${color.toUpperCase()}! 🎨`);
-    });
-  });
+        p.y += p.speed * speedMult;
+        p.x -= (p.speed * speedMult) * 0.2; // Angle
 
-  // 2.5 3D TILT EFFECT ON CARDS
-  const cards = document.querySelectorAll(".card");
-  
-  cards.forEach(card => {
-    card.addEventListener("mousemove", (e) => {
-      const rect = card.getBoundingClientRect();
+        if (p.y > height) {
+          p.y = -20;
+          p.x = Math.random() * width + 50; // shift right to fall left
+        }
+      });
+      requestAnimationFrame(drawRain);
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    createParticles();
+    drawRain();
+
+    // Hover effect
+    canvas.parentElement.addEventListener('mouseenter', () => isHoveringRain = true);
+    canvas.parentElement.addEventListener('mouseleave', () => isHoveringRain = false);
+  }
+
+  // ============================================================
+  // 13. SPOTLIGHT HOVER EFFECT
+  // ============================================================
+  const spotlightWrap = document.getElementById('spotlight-wrap');
+  const spotlightOverlay = document.getElementById('spotlight-overlay');
+
+  if (spotlightWrap && spotlightOverlay) {
+    spotlightWrap.addEventListener('mousemove', (e) => {
+      const rect = spotlightWrap.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      // Calculate rotation (max 15 degrees)
-      const rotateX = ((y - centerY) / centerY) * -15; 
-      const rotateY = ((x - centerX) / centerX) * 15;
-      
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      const maskStr = `radial-gradient(circle 180px at ${x}px ${y}px, black 15%, transparent 80%)`;
+      spotlightOverlay.style.webkitMaskImage = maskStr;
+      spotlightOverlay.style.maskImage = maskStr;
     });
     
-    card.addEventListener("mouseleave", () => {
-      card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-      card.style.transition = 'all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)';
+    // Reset to center on leave
+    spotlightWrap.addEventListener('mouseleave', () => {
+      const maskStr = `radial-gradient(circle 120px at 50% 50%, black 20%, transparent 100%)`;
+      spotlightOverlay.style.webkitMaskImage = maskStr;
+      spotlightOverlay.style.maskImage = maskStr;
     });
-    
-    card.addEventListener("mouseenter", () => {
-      card.style.transition = 'none'; // Remove transition for smooth cursor tracking
-    });
-  });
-
-  // 3. DETAILED SPECS MODAL POPUP
-  const specsModal = document.getElementById("specs-modal");
-  const closeModalBtn = document.querySelector(".close-modal-btn");
-  const modalOverlay = document.querySelector(".modal-overlay");
-
-  // Modal elements to update
-  const modalImg1 = document.getElementById("modal-img-1");
-  const modalImg2 = document.getElementById("modal-img-2");
-  const modalImg3 = document.getElementById("modal-img-3");
-  const viewBtns = document.querySelectorAll(".view-btn-ctrl");
-  
-  const modalTitle = document.getElementById("modal-title");
-  const modalDesc = document.getElementById("modal-desc");
-  const modalHp = document.getElementById("modal-hp");
-  const modalTime = document.getElementById("modal-time");
-  const modalSpeed = document.getElementById("modal-speed");
-  const modalPrice = document.getElementById("modal-price");
-  const modalBookBtn = document.getElementById("modal-book-btn");
-
-  cards.forEach(card => {
-    card.addEventListener("click", () => {
-      // Extract data attributes
-      const model = card.getAttribute("data-model");
-      const hp = card.getAttribute("data-hp");
-      const time = card.getAttribute("data-time");
-      const speed = card.getAttribute("data-speed");
-      const price = card.getAttribute("data-price");
-      const img1 = card.getAttribute("data-img");
-      const img2 = card.getAttribute("data-img-rear");
-      const img3 = card.getAttribute("data-img-int");
-      const desc = card.getAttribute("data-desc");
-
-      // Update modal contents
-      modalImg1.src = img1;
-      modalImg2.src = img2;
-      modalImg3.src = img3;
-      
-      modalTitle.textContent = model;
-      modalDesc.textContent = desc;
-      modalHp.textContent = hp;
-      modalTime.textContent = time;
-      modalSpeed.textContent = speed;
-      modalPrice.textContent = price;
-
-      // Reset gallery state to first image
-      document.querySelectorAll(".modal-slide").forEach(s => s.classList.remove("active"));
-      viewBtns.forEach(b => b.classList.remove("active"));
-      modalImg1.classList.add("active");
-      if (viewBtns.length > 0) viewBtns[0].classList.add("active");
-
-      // Hide slider controls if interior/rear images are identical to exterior
-      const sliderControls = document.querySelector(".slider-controls");
-      if (sliderControls) {
-        if (img1 === img2 && img1 === img3) {
-          sliderControls.style.display = "none";
-        } else {
-          sliderControls.style.display = "flex";
-        }
-      }
-
-      // Open Modal
-      specsModal.classList.add("open");
-      document.body.style.overflow = "hidden"; // Prevent background scroll
-    });
-  });
-
-  // Slider Button Logic
-  viewBtns.forEach((btn, index) => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".modal-slide").forEach(s => s.classList.remove("active"));
-      viewBtns.forEach(b => b.classList.remove("active"));
-      
-      btn.classList.add("active");
-      document.getElementById(`modal-img-${index + 1}`).classList.add("active");
-    });
-  });
-
-  // Close Modal functions
-  const closeModal = () => {
-    specsModal.classList.remove("open");
-    document.body.style.overflow = "auto";
-  };
-
-  closeModalBtn.addEventListener("click", closeModal);
-  modalOverlay.addEventListener("click", closeModal);
-
-  // Modal Action Button (Auto fills form and scrolls down)
-  modalBookBtn.addEventListener("click", () => {
-    const selectedModel = modalTitle.textContent;
-    const modelDropdown = document.getElementById("form-model");
-    
-    // Fill option
-    modelDropdown.value = selectedModel;
-    
-    closeModal();
-    
-    // Smooth scroll to form
-    document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
-    
-    // Focus on name input
-    setTimeout(() => {
-      document.getElementById("form-name").focus();
-    }, 800);
-  });
-
-  // 4. TEST DRIVE BOOKING FORM WITH TOAST NOTIFICATION
-  const bookingForm = document.getElementById("booking-form");
-  bookingForm.addEventListener("submit", (e) => {
-    e.preventDefault(); // Stop page reload
-
-    const name = document.getElementById("form-name").value;
-    const email = document.getElementById("form-email").value;
-    const model = document.getElementById("form-model").value;
-
-    // Show booking toast success
-    showToast(`🏁 Success! Inquiry sent for ${model}. Our representative will contact you soon!`);
-
-    // Reset Form
-    bookingForm.reset();
-  });
-
-  // 5. HELPER FUNCTION TO SHOW TOAST NOTIFICATION
-  function showToast(message) {
-    const toastContainer = document.getElementById("toast-container");
-    const toast = document.createElement("div");
-    toast.className = "toast";
-    toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${message}</span>`;
-    
-    toastContainer.appendChild(toast);
-
-    // Fade out after 4 seconds
-    setTimeout(() => {
-      toast.classList.add("show");
-    }, 100);
-
-    setTimeout(() => {
-      toast.classList.remove("show");
-      setTimeout(() => {
-        toast.remove();
-      }, 500);
-    }, 4000);
   }
+
+  // ============================================================
+  // 14. CUSTOM CURSOR
+  // ============================================================
+  const cursor = document.createElement('div');
+  cursor.classList.add('custom-cursor');
+  document.body.appendChild(cursor);
+
+  window.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+
+  // Make cursor grow on hover over clickable elements
+  const clickables = document.querySelectorAll('a, button, .hero-car-wrap, .spotlight-bg');
+  clickables.forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+  });
+
 });
